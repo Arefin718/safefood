@@ -193,7 +193,7 @@
                 </a>
                 <ul id="admin_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="{{route('admin.addAdmin')}}">Add Admin</a>
+                        <a href="#">Add Admin</a>
                     </li>
                     <li>
                         <a href="#">Admin List</a>
@@ -218,7 +218,7 @@
                 </a>
                 <ul id="restaurant_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="#">Add Restaurant</a>
+                        <a href="{{route('admin.addRestaurant')}}">Add Restaurant</a>
                     </li>
                     <li>
                         <a href="#">Restaurant List</a>

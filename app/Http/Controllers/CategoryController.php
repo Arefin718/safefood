@@ -31,8 +31,9 @@ class CategoryController extends Controller
         $category=New Categorys();
         $category->title          =$title;
         $category->description    =$description;
+
         $category->save();
-        return 'test';
+
         return redirect()->route('admin.categoryList');
 
     }
