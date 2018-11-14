@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('contact_number')->unique();
+            $table->boolean("status")->default('1');
+            $table->boolean("is_varified")->default('1');
             $table->timestamps();
         });
     }

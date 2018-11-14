@@ -11,8 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return "get";
-});
+Route::get('/','HomeController@Login')->name('login');
+Route::post('/','HomeController@LoginPost');
+Route::get('/login','HomeController@Login')->name('login');
+Route::post('/login','HomeController@LoginPost');
+Route::get('/logout','HomeController@Logout')->name('logout');
 
-Route::get('/home','HomeController@Login')->name('home');
+Route::get('/home','HomeController@AdminHome')->name('home');
+
+Route::get('/addadmin','AdminController@AddAdmin')->name('admin.addAdmin');
+Route::post('/addadmin','AdminController@AddAdminPost');
+
+Route::get('/addcategory','CategoryController@AddCategory')->name('admin.addCategory');
+Route::post('/addcategory','CategoryController@AddCategoryPost');
+
+Route::get('/categorylist','CategoryController@CategoryList')->name('admin.categoryList');
+
+Route::get('/category/edit/{id}','CategoryController@EditCategory')->name('admin.editCategory');
+Route::post('/category/edit/{id}','CategoryController@EditCategoryPost');
+
+//Admin Group
+Route::group(['middleware' => 'AdminLoginCheck'], function (){
+
+});
