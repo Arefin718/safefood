@@ -54,16 +54,16 @@
                     <div class="col-sm-12">
 
                                 <label for="p_type">Division</label>
-                                <select required name="p_type" id="type">
+                                <select required name="division" id="division">
 
-                                    <option value="DHK">Barishal</option>
-                                    <option value="DHK">Chittagong</option>
-                                    <option value="DHK" selected >Dhaka</option>
-                                    <option value="DHK">Khulna</option>
-                                    <option value="DHK">Mymensingh</option>
-                                    <option value="DHK">Rajshahi</option>
-                                    <option value="DHK">Rangpur</option>
-                                    <option value="DHK">Sylhet</option>
+                                    <option value="barishal">Barishal</option>
+                                    <option value="Chittagong">Chittagong</option>
+                                    <option value="Dhaka" selected >Dhaka</option>
+                                    <option value="Khulna">Khulna</option>
+                                    <option value="Mymensingh">Mymensingh</option>
+                                    <option value="Rajshahi">Rajshahi</option>
+                                    <option value="Rangpur">Rangpur</option>
+                                    <option value="Sylhet">Sylhet</option>
 
                                 </select>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="col-sm-12">
 
                         <label for="city">City</label>
-                        <select  required name="city" id="type">
+                        <select  required name="city" id="city">
                             <option value=""></option>
                             <option value="City 1">City 1</option>
                             <option value="City 2">City 2</option>
@@ -84,7 +84,7 @@
                     <div class="col-sm-12">
 
                         <label for="city">Thana/Upazila</label>
-                        <select  required name="thana_upazila" id="type">
+                        <select  required name="thana_upazila" id="thana_upazila">
                             <option value=""></option>
                             <option value="TU 1">TU 1</option>
                             <option value="TU 2">TU 2</option>

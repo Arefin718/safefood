@@ -16,8 +16,8 @@ class CreateInspectionsTable extends Migration
         Schema::create('inspections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('restaurant_id');
-            $table->string('last_inspection');
-            $table->string('next_inspection');
+            $table->date('last_inspection');
+            $table->date('next_inspection');
             $table->string('current_category');
             $table->string('inspected_by');
             $table->timestamps();

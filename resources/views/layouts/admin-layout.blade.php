@@ -112,7 +112,7 @@
                 </ul>
             </div>--}}
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul hidden class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle 	glyphicon glyphicon-bell" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> (<b>2</b>)</a>
                     <ul class="dropdown-menu notify-drop">
@@ -221,7 +221,7 @@
                         <a href="{{route('admin.addRestaurant')}}">Add Restaurant</a>
                     </li>
                     <li>
-                        <a href="#">Restaurant List</a>
+                        <a href="{{route('admin.restaurantList')}}">Restaurant List</a>
                     </li>
                     <li>
                         <a href="#">Deleted Restaurant List</a>
@@ -245,6 +245,27 @@
                     </li>
                     <li>
                         <a href="#">Deleted Category List</a>
+                    </li>
+                </ul>
+            </li>
+
+            {{-- Inspection Menu--}}
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#inspection_menu">
+                    <div class="pull-left"><i class="zmdi zmdi-map mr-20"></i><span
+                                class="right-nav-text">Inspection</span></div>
+                    <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul id="inspection_menu" class="collapse collapse-level-1">
+                    <li>
+                        <a href="#">Inspections of the Month</a>
+                    </li>
+                    <li>
+                        <a href="#">Inspection List</a>
+                    </li>
+                    <li>
+                        <a href="#">Inspection Expired</a>
                     </li>
                 </ul>
             </li>

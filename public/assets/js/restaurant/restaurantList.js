@@ -2,20 +2,21 @@ $(document).ready(function(){
     $('#myTable').dataTable();
 });
 
-function ChangePurchaseStatus(purchase_id) {
+
+function changeStatus(id) {
 
 
     $.ajax({
         type: "POST",
-        url: "/purchase/deletepurchase",
+        url: "/restaurant/changestatus",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-            purchase_id : purchase_id,
+            id : id,
         },
         success: function (result) {
-            $('#purchase_'+purchase_id).remove();
+
             console.log(result);
         }
     });

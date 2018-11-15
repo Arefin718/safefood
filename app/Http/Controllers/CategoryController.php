@@ -70,9 +70,9 @@ class CategoryController extends Controller
         $category->description    =$description;
         $category->save();
 
-        // return $type;
-        $categorys=Categorys::all();
-        return view('category.categoryList')->with('categorys',$categorys);
+
+
+        return redirect()->route('admin.categoryList');
 
     }
 }

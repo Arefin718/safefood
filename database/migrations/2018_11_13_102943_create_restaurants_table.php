@@ -33,6 +33,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('owner_name');
             $table->string('owner_contact_number');
             $table->string('category');
+            $table->boolean("status")->default('1');
 
 
             $table->timestamps();

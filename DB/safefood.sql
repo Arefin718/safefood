@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2018 at 12:43 PM
+-- Generation Time: Nov 15, 2018 at 11:35 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.1.20
 
@@ -86,6 +86,13 @@ CREATE TABLE `complains` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `complains`
+--
+
+INSERT INTO `complains` (`id`, `user_id`, `user_name`, `contact`, `restaurant_id`, `restaurant_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, '1', 'User 1', 'user1@gmail.com', 'DHK1230181115102858', 'bfc', 'Not satisfied with their environment', '2018-11-15 10:34:45', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -95,13 +102,21 @@ CREATE TABLE `complains` (
 CREATE TABLE `inspections` (
   `id` int(10) UNSIGNED NOT NULL,
   `restaurant_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_inspection` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `next_inspection` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_inspection` date NOT NULL,
+  `next_inspection` date NOT NULL,
   `current_category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `inspected_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inspections`
+--
+
+INSERT INTO `inspections` (`id`, `restaurant_id`, `last_inspection`, `next_inspection`, `current_category`, `inspected_by`, `created_at`, `updated_at`) VALUES
+(1, 'DHK1230181115093959', '2018-08-15', '2018-11-15', 'A', 'Akbar Hossain', '2018-11-15 10:27:17', NULL),
+(2, 'DHK1230181115102858', '2018-06-04', '2018-09-01', 'B', 'Sayed Sabbir', '2018-11-15 10:31:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -171,6 +186,13 @@ CREATE TABLE `ratings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `user_id`, `restaurant_id`, `rate`, `created_at`, `updated_at`) VALUES
+(1, '2', 'DHK1230181115093959', '2', '2018-11-15 10:35:17', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -189,16 +211,25 @@ CREATE TABLE `restaurants` (
   `location_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `division_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `thana_upazila_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thana_upazila_bangla` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `zip_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `owner_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `owner_contact_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`id`, `restaurant_id`, `title_english`, `title_bangla`, `location_english`, `division_english`, `city_english`, `thana_upazila_english`, `location_bangla`, `division_bangla`, `city_bangla`, `thana_upazila_bangla`, `zip_code`, `latitude`, `longitude`, `owner_name`, `owner_contact_number`, `category`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'DHK1230181115093959', 'kfc', 'কে এফ সি', 'Uttara', 'Dhaka', 'City 1', 'TU 1', 'উত্তারা', NULL, NULL, NULL, '1230', NULL, NULL, 'Test Owner', '01912345678', 'A', 1, '2018-11-15 03:39:59', '2018-11-15 04:00:59'),
+(2, 'DHK1230181115102858', 'bfc', 'বিএফসি', 'Uttara', 'Dhaka', 'City 1', 'TU 1', 'উত্তারা', NULL, NULL, NULL, '1230', NULL, NULL, 'Sadik Ahmed', '01812345678', 'B', 1, '2018-11-15 04:28:58', '2018-11-15 04:28:58');
 
 -- --------------------------------------------------------
 
@@ -217,6 +248,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact_number`, `status`, `is_varified`, `created_at`, `updated_at`) VALUES
+(1, 'User 1', 'user1@gmail.com', '1234', '01688248876', 1, 1, '2018-11-15 10:32:44', NULL),
+(2, 'User 2', 'user2@gmail.com', '1234', '017788248876', 1, 1, '2018-11-15 10:33:19', NULL);
 
 --
 -- Indexes for dumped tables
@@ -308,13 +347,13 @@ ALTER TABLE `categorys`
 -- AUTO_INCREMENT for table `complains`
 --
 ALTER TABLE `complains`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `inspections`
 --
 ALTER TABLE `inspections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `logins`
@@ -332,19 +371,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

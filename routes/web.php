@@ -32,6 +32,8 @@ Route::post('/category/edit/{id}','CategoryController@EditCategoryPost');
 
 Route::get('/addrestaurant','RestaurantController@AddRestaurant')->name('admin.addRestaurant');
 Route::post('/addrestaurant','RestaurantController@AddRestaurantPost');
+Route::get('/restaurantlist','RestaurantController@RestaurantList')->name('admin.restaurantList');
+Route::post('/restaurant/changestatus','RestaurantController@RestaurantStatusChange')->name('admin.restaurantStatus');
 
 //Admin Group
 Route::group(['middleware' => 'AdminLoginCheck'], function (){
