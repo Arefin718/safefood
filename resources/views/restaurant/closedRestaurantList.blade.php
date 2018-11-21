@@ -1,6 +1,5 @@
 @extends('layouts.admin-layout')
 
-
 @section('title', 'BFSA | Admin')
 <link rel="stylesheet" href="{{ URL::asset('assets/css/normalize.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/form-styles.css') }}">

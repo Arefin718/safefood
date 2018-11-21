@@ -224,7 +224,7 @@
                         <a href="{{route('admin.restaurantList')}}">Restaurant List</a>
                     </li>
                     <li>
-                        <a href="#">Deleted Restaurant List</a>
+                        <a href="{{route('admin.closedRestaurantList')}}">Closed Restaurant List</a>
                     </li>
                 </ul>
             </li>
@@ -244,7 +244,7 @@
                         <a href="{{route('admin.categoryList')}}">Category List</a>
                     </li>
                     <li>
-                        <a href="#">Deleted Category List</a>
+                        <a href="#">Closed Category List</a>
                     </li>
                 </ul>
             </li>
@@ -259,13 +259,13 @@
                 </a>
                 <ul id="inspection_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="#">Inspections of the Month</a>
+                        <a href="/inspection/inspectionofthemonth">Inspections of the Month</a>
                     </li>
                     <li>
-                        <a href="#">Inspection List</a>
+                        <a href="/inspection/inspectionlist">Inspection List</a>
                     </li>
                     <li>
-                        <a href="#">Inspection Expired</a>
+                        <a href="/inspection/inspectionexpired">Inspection Expired</a>
                     </li>
                 </ul>
             </li>
@@ -283,6 +283,24 @@
                     </li>
                     <li>
                         <a href="#">Complain</a>
+                    </li>
+
+                </ul>
+            </li>
+            {{-- Area Menu--}}
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#user_menu">
+                    <div class="pull-left"><i class="zmdi zmdi-map mr-20"></i><span
+                                class="right-nav-text">Area</span></div>
+                    <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul id="user_menu" class="collapse collapse-level-1">
+                    <li>
+                        <a href="#">Add New Area</a>
+                    </li>
+                    <li>
+                        <a href="#">Area List</a>
                     </li>
 
                 </ul>

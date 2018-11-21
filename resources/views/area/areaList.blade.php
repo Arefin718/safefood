@@ -43,7 +43,7 @@
 
                                             <td class="txt-dark">{{$restaurant->owner_contact_number}}</td>
 
-                                            <td><a href="/restaurant/details/{{$restaurant->restaurant_id}}" class="btn btn-primary a-btn-slide-text">
+                                            <td><a href="#" class="btn btn-primary a-btn-slide-text">
                                                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                                     <span><strong>View</strong></span>
                                                 </a></td>

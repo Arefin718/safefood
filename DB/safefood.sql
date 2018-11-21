@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2018 at 11:35 AM
+-- Generation Time: Nov 21, 2018 at 01:33 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.1.20
 
@@ -44,7 +44,32 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `contact_number`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'admin ', 'admin@gmail.com', '1234', '01712345678', 1, '2018-11-14 08:36:20', NULL);
+(1, 'admin ', 'admin@gmail.com', '1234', '01712345678', 1, '2018-11-14 02:36:20', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `areas`
+--
+
+CREATE TABLE `areas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `division_english` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `district_english` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thana_upazila_english` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `division_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `district_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thana_upazila_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `areas`
+--
+
+INSERT INTO `areas` (`id`, `division_english`, `district_english`, `thana_upazila_english`, `division_bangla`, `district_bangla`, `thana_upazila_bangla`, `created_at`, `updated_at`) VALUES
+(1, 'dhaka', 'dhaka', 'uttara', 'ঢাকা\r\n', 'ঢাকা\r\n', 'উত্তারা', '2018-11-21 08:09:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -65,8 +90,9 @@ CREATE TABLE `categorys` (
 --
 
 INSERT INTO `categorys` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'A', 'Test title 2', '2018-11-14 04:08:58', '2018-11-14 04:28:15'),
-(2, 'B', 'Title B', '2018-11-14 04:39:11', '2018-11-14 04:39:11');
+(1, 'A', 'Test title 2', '2018-11-13 22:08:58', '2018-11-13 22:28:15'),
+(2, 'B', 'Title B', '2018-11-13 22:39:11', '2018-11-13 22:39:11'),
+(3, 'Yellow', 'Best', '2018-11-18 17:12:32', '2018-11-18 17:12:32');
 
 -- --------------------------------------------------------
 
@@ -77,10 +103,7 @@ INSERT INTO `categorys` (`id`, `title`, `description`, `created_at`, `updated_at
 CREATE TABLE `complains` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `restaurant_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `restaurant_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -90,8 +113,23 @@ CREATE TABLE `complains` (
 -- Dumping data for table `complains`
 --
 
-INSERT INTO `complains` (`id`, `user_id`, `user_name`, `contact`, `restaurant_id`, `restaurant_name`, `description`, `created_at`, `updated_at`) VALUES
-(1, '1', 'User 1', 'user1@gmail.com', 'DHK1230181115102858', 'bfc', 'Not satisfied with their environment', '2018-11-15 10:34:45', NULL);
+INSERT INTO `complains` (`id`, `user_id`, `restaurant_id`, `description`, `created_at`, `updated_at`) VALUES
+(1, '1', 'DHK1230181115102858', 'Not satisfied with their environment', '2018-11-15 04:34:45', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedbacks`
+--
+
+CREATE TABLE `feedbacks` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `contact` varchar(100) NOT NULL,
+  `description` varchar(250) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,7 +140,7 @@ INSERT INTO `complains` (`id`, `user_id`, `user_name`, `contact`, `restaurant_id
 CREATE TABLE `inspections` (
   `id` int(10) UNSIGNED NOT NULL,
   `restaurant_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_inspection` date NOT NULL,
+  `inspection_date` date NOT NULL,
   `next_inspection` date NOT NULL,
   `current_category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `inspected_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -114,9 +152,8 @@ CREATE TABLE `inspections` (
 -- Dumping data for table `inspections`
 --
 
-INSERT INTO `inspections` (`id`, `restaurant_id`, `last_inspection`, `next_inspection`, `current_category`, `inspected_by`, `created_at`, `updated_at`) VALUES
-(1, 'DHK1230181115093959', '2018-08-15', '2018-11-15', 'A', 'Akbar Hossain', '2018-11-15 10:27:17', NULL),
-(2, 'DHK1230181115102858', '2018-06-04', '2018-09-01', 'B', 'Sayed Sabbir', '2018-11-15 10:31:30', NULL);
+INSERT INTO `inspections` (`id`, `restaurant_id`, `inspection_date`, `next_inspection`, `current_category`, `inspected_by`, `created_at`, `updated_at`) VALUES
+(5, 'DHK1230181115093959', '2018-08-15', '2018-11-15', 'A', 'Salam', '2018-11-21 06:17:51', '2018-11-21 06:17:51');
 
 -- --------------------------------------------------------
 
@@ -157,7 +194,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2018_11_13_103042_create_logins_table', 1),
 (7, '2018_11_13_105806_create_inspections_table', 1),
 (8, '2018_11_13_105825_create_ratings_table', 1),
-(9, '2018_11_13_105841_create_complains_table', 1);
+(9, '2018_11_13_105841_create_complains_table', 1),
+(10, '2018_11_21_080000_create_areas_table', 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +229,7 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `user_id`, `restaurant_id`, `rate`, `created_at`, `updated_at`) VALUES
-(1, '2', 'DHK1230181115093959', '2', '2018-11-15 10:35:17', NULL);
+(1, '2', 'DHK1230181115093959', '2', '2018-11-15 04:35:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -211,13 +249,15 @@ CREATE TABLE `restaurants` (
   `location_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `division_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `thana_upazila_bangla` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thana_upazila_bangla` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `zip_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `owner_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `owner_contact_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `current_category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_inspection_date` date NOT NULL,
+  `inspected_by` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -227,9 +267,10 @@ CREATE TABLE `restaurants` (
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`id`, `restaurant_id`, `title_english`, `title_bangla`, `location_english`, `division_english`, `city_english`, `thana_upazila_english`, `location_bangla`, `division_bangla`, `city_bangla`, `thana_upazila_bangla`, `zip_code`, `latitude`, `longitude`, `owner_name`, `owner_contact_number`, `category`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'DHK1230181115093959', 'kfc', 'কে এফ সি', 'Uttara', 'Dhaka', 'City 1', 'TU 1', 'উত্তারা', NULL, NULL, NULL, '1230', NULL, NULL, 'Test Owner', '01912345678', 'A', 1, '2018-11-15 03:39:59', '2018-11-15 04:00:59'),
-(2, 'DHK1230181115102858', 'bfc', 'বিএফসি', 'Uttara', 'Dhaka', 'City 1', 'TU 1', 'উত্তারা', NULL, NULL, NULL, '1230', NULL, NULL, 'Sadik Ahmed', '01812345678', 'B', 1, '2018-11-15 04:28:58', '2018-11-15 04:28:58');
+INSERT INTO `restaurants` (`id`, `restaurant_id`, `title_english`, `title_bangla`, `location_english`, `division_english`, `city_english`, `thana_upazila_english`, `location_bangla`, `division_bangla`, `city_bangla`, `thana_upazila_bangla`, `zip_code`, `latitude`, `longitude`, `owner_name`, `owner_contact_number`, `current_category`, `last_inspection_date`, `inspected_by`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'DHK1230181115093959', 'kfc', 'কে এফ সি', 'H-13, Sec-13, Sonargaon Janapath, Dhaka 1230', 'Dhaka', 'Dhaka', 'Uttara', 'উত্তারা', NULL, NULL, NULL, '1230', '23.8741894', '90.39184829999999', 'Hamid Khan', '01912345678', 'A', '2018-08-15', 'Salam', 1, '2018-11-14 21:39:59', '2018-11-21 06:17:51'),
+(2, 'DHK1230181115102858', 'bfc', 'বিএফসি', 'Plot No.:1, Sector 1, Uttara Tower, Jashimuddin Road, Uttara', 'Dhaka', 'Dhaka', 'Uttara', 'উত্তারা', NULL, NULL, NULL, '1230', '23.8609952', '90.3997316', 'Sadik Ahmed', '01812345678', 'B', '2018-06-04', 'Sayed Sabbir', 1, '2018-11-14 22:28:58', '2018-11-14 22:28:58'),
+(3, 'DHK1230181121090517', 'One', 'ওয়ান', 'Uttara', 'Dhaka', 'Dhaka', 'Uttara', 'উত্তারা', NULL, NULL, NULL, '1230', NULL, NULL, 'Tanvir Islam', '01912345679', 'A', '2018-11-01', 'Aslam Haque', 1, '2018-11-21 03:05:17', '2018-11-21 04:04:12');
 
 -- --------------------------------------------------------
 
@@ -254,8 +295,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact_number`, `status`, `is_varified`, `created_at`, `updated_at`) VALUES
-(1, 'User 1', 'user1@gmail.com', '1234', '01688248876', 1, 1, '2018-11-15 10:32:44', NULL),
-(2, 'User 2', 'user2@gmail.com', '1234', '017788248876', 1, 1, '2018-11-15 10:33:19', NULL);
+(1, 'User 1', 'user1@gmail.com', '1234', '01688248876', 1, 1, '2018-11-15 04:32:44', NULL),
+(2, 'User 2', 'user2@gmail.com', '1234', '017788248876', 1, 1, '2018-11-15 04:33:19', NULL);
 
 --
 -- Indexes for dumped tables
@@ -270,6 +311,12 @@ ALTER TABLE `admins`
   ADD UNIQUE KEY `admins_contact_number_unique` (`contact_number`);
 
 --
+-- Indexes for table `areas`
+--
+ALTER TABLE `areas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categorys`
 --
 ALTER TABLE `categorys`
@@ -280,6 +327,12 @@ ALTER TABLE `categorys`
 -- Indexes for table `complains`
 --
 ALTER TABLE `complains`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -338,10 +391,16 @@ ALTER TABLE `admins`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `areas`
+--
+ALTER TABLE `areas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `complains`
@@ -350,10 +409,16 @@ ALTER TABLE `complains`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `inspections`
 --
 ALTER TABLE `inspections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `logins`
@@ -365,7 +430,7 @@ ALTER TABLE `logins`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ratings`
@@ -377,7 +442,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

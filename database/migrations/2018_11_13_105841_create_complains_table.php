@@ -16,11 +16,11 @@ class CreateComplainsTable extends Migration
         Schema::create('complains', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->string('user_name');
+            $table->string('user_name')->nullable();
             $table->string('contact')->nullable();
             $table->string('restaurant_id')->nullable();
             $table->string('restaurant_name')->nullable();
-            $table->string('description')->nullable();
+            $table->string('description');
 
             $table->timestamps();
         });

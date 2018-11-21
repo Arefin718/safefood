@@ -4,7 +4,7 @@
 @section('title', 'BFSA | Admin')
 <link rel="stylesheet" href="{{ URL::asset('assets/css/normalize.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/form-styles.css') }}">
-
+<link rel="stylesheet" href="{{ URL::asset('assets/css/datepicker.css') }}">
 @section('content')
 
     <div class="container-fluid" style="background-color: seashell">
@@ -71,12 +71,11 @@
                 <div class="row">
                     <div class="col-sm-12">
 
-                        <label for="city">City</label>
+                        <label for="city">District</label>
                         <select  required name="city" id="city">
-                            <option value=""></option>
-                            <option value="City 1">City 1</option>
-                            <option value="City 2">City 2</option>
-                            <option value="City 3">City 3</option>
+                            <option value="">Select</option>
+                            <option value="Dhaka">Dhaka</option>
+
                         </select>
                     </div>
                 </div>
@@ -85,10 +84,11 @@
 
                         <label for="city">Thana/Upazila</label>
                         <select  required name="thana_upazila" id="thana_upazila">
-                            <option value=""></option>
-                            <option value="TU 1">TU 1</option>
-                            <option value="TU 2">TU 2</option>
-                            <option value="TU 3">TU 3</option>
+                            <option value="">Select</option>
+                            <option value="Uttara">Uttara</option>
+                            <option value="Badda">Badda</option>
+                            <option value="Banani">Banani</option>
+                            <option value="Gulshan">Gulshan</option>
                         </select>
                     </div>
                 </div>
@@ -114,6 +114,21 @@
                         <label style="color: #fff;">{{$errors->first('owner_contact_number')}}</label>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="p_type">Inspection Date</label>
+                        <div class="input-group date" data-provide="datepicker">
+                            <input id="last_inspection_date" name="last_inspection_date" type="text" class="form-control"  placeholder="Please enter inspection date">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="p_type">Restaurant Category</label>
@@ -126,7 +141,13 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="title">Inspected By<span>* </span></label>
+                        <input required  type="text" name="inspected_by" id="inspected_by"   placeholder="Please enter inspected_by">
+                        <label style="color: #fff;">{{$errors->first('inspected_by')}}</label>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <button name="register-submit" type="submit" class="button green">Add Restaurant</button>
@@ -141,4 +162,20 @@
 
 
 
+@endsection
+@section('scripts')
+    <script src="{{ URL::asset('assets/js/datepicker.js') }}"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+
+            $('.reg_date').datepicker({
+
+
+            });
+        });
+
+    </script>
 @endsection

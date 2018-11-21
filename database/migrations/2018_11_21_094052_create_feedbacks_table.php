@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInspectionsTable extends Migration
+class CreateFeedbacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateInspectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inspections', function (Blueprint $table) {
+        Schema::create('feedbacks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('restaurant_id');
-            $table->date('inspection_date');
-            $table->date('next_inspection');
-            $table->string('current_category');
-            $table->string('inspected_by');
+
+            $table->string('name');
+            $table->string('contact');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateInspectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inspection');
+        Schema::dropIfExists('feedbacks');
     }
 }
