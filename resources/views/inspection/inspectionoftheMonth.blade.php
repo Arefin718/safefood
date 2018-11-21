@@ -15,7 +15,7 @@
                     <div class="panel-body row">
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <table class="table display responsive product-overview mb-30" id="myTable">
+                                <table class="inspection_table table display responsive product-overview mb-30" id="myTable">
                                     <thead>
                                     <tr>
                                         <th>Inspection Date</th>
@@ -58,7 +58,11 @@
 
 @endsection
 @section('scripts')
-
-
+    <script src="{{asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.inspection_table').dataTable();
+        });
+    </script>
 
 @endsection
