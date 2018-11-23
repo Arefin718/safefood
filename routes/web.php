@@ -47,7 +47,16 @@ Route::get('/inspection/inspectionlist','InspectionController@InspectionList')->
 Route::get('/inspection/inspectionofthemonth','InspectionController@InspectionsoftheMonth')->name('admin.inspectionoftheMonth');
 Route::get('/inspection/inspectionexpired','InspectionController@InspectionExpired')->name('admin.inspectionExpired');
 
+
+
 //Admin Routes end
+
+
+//User
+Route::get('/user/searchrestaurant','UserController@SearchRestaurant')->name('user.searchRestaurant');
+Route::post('/user/searchrestaurant','UserController@SearchRestaurantPost');
+
+
 //Admin Group
 Route::group(['middleware' => 'AdminLoginCheck'], function (){
 

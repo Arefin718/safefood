@@ -8,8 +8,10 @@
 
 
 @section('content')
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+        <div id="qrcode"></div>
 
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -68,7 +70,9 @@
                         <a href="/restaurant/edit/{{$restaurant->restaurant_id}}}" class="btn btn-primary">Edit</a>
                         <td class="txt-dark">
                             <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Inspect</a>
-
+                        </td>
+                        <td class="txt-dark">
+                            <a onclick="makeCode()" type="button" class="btn btn-primary">Print QR</a>
                         </td>
                         <a href="/restaurantlist" class="btn btn-primary">Back to List</a>
                     </div>
@@ -310,6 +314,12 @@
             <script src="{{asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
             <script src="{{ URL::asset('assets/js/datepicker.js') }}"></script>
             <script src="{{ URL::asset('assets/js/inspection/inspection.js') }}"></script>
+            <script src="{{ URL::asset('assets/js/jquery-1.11.1.min.js') }}"></script>
+            <script src="{{ URL::asset('assets/js/qrcode.min.js') }}"></script>
+
+
+
+            <script src="{{ URL::asset('assets/js/restaurant/restaurantDetails.js') }}"></script>
             <script>
                 $(document).ready(function(){
                     $('#inspectionTable').dataTable();
@@ -323,7 +333,10 @@
 
                     });
 
-                    // $("#tabs").tabs();
+
+
+
+
                 });
             </script>
 @endsection

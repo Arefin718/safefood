@@ -458,6 +458,7 @@
 <script src="{{asset('vendors/bower_components/jquery.steps/build/jquery.steps.min.js')}}"></script>
 
 <script src="{{ URL::asset('assets/js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/qrcode.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/jquery.canvasjs.min.js') }}"></script>
 
 <script type="text/javascript">
