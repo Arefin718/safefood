@@ -30,6 +30,7 @@ class HomeController extends Controller
         $password=$request->input('password');
 
         $adminDB = Admin::where('email', '=', $email_or_number)->orwhere('contact_number','=',$email_or_number)->first();
+
         $message="";
 
         if($adminDB==null){
@@ -57,12 +58,17 @@ class HomeController extends Controller
         }
 
     }
-public function AdminHome(){
 
-        return view('admin.home');
-}
+    public function AdminHome(){
+
+            return view('admin.home');
+    }
+
+
     public function Logout(){
         session()->forget('admin');
         return redirect()->route('login');
     }
+
+
 }
