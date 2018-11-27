@@ -208,23 +208,23 @@
 
 
 
-            {{-- Restaurant Menu--}}
+            {{-- Company Menu--}}
             <li>
-                <a href="#" data-toggle="collapse" data-target="#restaurant_menu">
+                <a href="#" data-toggle="collapse" data-target="#Company_menu">
                     <div class="pull-left"><i class="zmdi zmdi-map mr-20"></i><span
-                                class="right-nav-text">Restaurant</span></div>
+                                class="right-nav-text">Company</span></div>
                     <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
                     <div class="clearfix"></div>
                 </a>
-                <ul id="restaurant_menu" class="collapse collapse-level-1">
+                <ul id="Company_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="{{route('admin.addRestaurant')}}">Add Restaurant</a>
+                        <a href="{{route('admin.addCompany')}}">Add Company</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.restaurantList')}}">Restaurant List</a>
+                        <a href="{{route('admin.companyList')}}">Company List</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.closedRestaurantList')}}">Closed Restaurant List</a>
+                        <a href="{{route('admin.closedCompanyList')}}">Closed Company List</a>
                     </li>
                 </ul>
             </li>
@@ -259,11 +259,12 @@
                 </a>
                 <ul id="inspection_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="/inspection/inspectionofthemonth">Inspections of the Month</a>
+                        <a href="/inspection/inspectionlist">Inspections History</a>
                     </li>
                     <li>
-                        <a href="/inspection/inspectionlist">Inspection List</a>
+                        <a href="/inspection/inspectionofthemonth">Inspections of the Month</a>
                     </li>
+
                     <li>
                         <a href="/inspection/inspectionexpired">Inspection Expired</a>
                     </li>

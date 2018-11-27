@@ -9,7 +9,7 @@ function AddInspection() {
 
         $.ajax({
             type: "POST",
-            url: "/restaurant/addinspection",
+            url: "/company/addinspection",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

@@ -8,7 +8,7 @@ function changeStatus(id) {
 
     $.ajax({
         type: "POST",
-        url: "/restaurant/changestatus",
+        url: "/company/changestatus",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },

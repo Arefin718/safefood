@@ -15,7 +15,7 @@ function printImg() {
 function makeCode () {
     $('#qrcode').html("");
     var qrcode = new QRCode("qrcode");
-    var elText = "http://localhost:8000/restaurant/details/"+ $('#restaurant_id').html();
+    var elText = "http://localhost:8000/user/company/details/"+ $('#company_id').html();
 
     qrcode.makeCode(elText);
 

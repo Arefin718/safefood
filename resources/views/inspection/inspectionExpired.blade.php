@@ -19,8 +19,8 @@
                                     <thead>
                                     <tr>
                                         <th>Inspection Date</th>
-                                        <th>Restaurant ID</th>
-                                        <th>Restaurant Category</th>
+                                        <th>Company ID</th>
+                                        <th>Company Category</th>
                                         <th>Inspected By</th>
                                         <th>Expired in (Month)</th>
                                         <td></td>
@@ -32,15 +32,15 @@
 
                                             <tr>
                                                 <td class="txt-dark">{{$inspection->inspection_date}}</td>
-                                                <td class="txt-dark">{{$inspection->restaurant_id}}</td>
+                                                <td class="txt-dark">{{$inspection->company_id}}</td>
                                                 <td class="txt-dark">{{$inspection->current_category}}</td>
                                                 <td class="txt-dark">{{$inspection->inspected_by}}</td>
                                                 <td class="txt-dark">{{$inspection->difference}}</td>
 
 
-                                                <td><a href="/restaurant/details/{{$inspection->restaurant_id}}" class="btn btn-danger a-btn-slide-text">
+                                                <td><a href="/company/details/{{$inspection->company_id}}" class="btn btn-danger a-btn-slide-text">
                                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                                        <span><strong>View Restaurant</strong></span>
+                                                        <span><strong>View Company</strong></span>
                                                     </a></td>
 
 

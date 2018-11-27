@@ -13,11 +13,11 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
         <div id="qrcode"></div>
         <a onclick="makeCode()" type="button" class="btn btn-primary">Generate QR</a>
-
+@foreach($companys as $company)
         <div class="panel panel-info">
             <div class="panel-heading">
 
-                    <h3 class="panel-title">{{$restaurant->title_english}}</h3>
+                    <h3 class="panel-title">{{$company->title_english}}</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -29,64 +29,69 @@
 
                             <tr>
                                 <td>ID</td>
-                                <td id="restaurant_id">{{$restaurant->restaurant_id}}</td>
+                                <td id="company_id">{{$company->company_id}}</td>
                             </tr>
 
                             <tr>
                                 <td>Address</td>
-                                <td>{{$restaurant->location_english}}</td>
+                                <td>{{$company->location_english}}</td>
                             </tr>
                             <tr>
                                 <td>District</td>
-                                <td>{{$restaurant->city_english}}</td>
+                                <td>{{$company->city_english}}</td>
                             </tr>
                             <tr>
                                 <td>Zip Code</td>
-                                <td>{{$restaurant->zip_code}}</td>
+                                <td>{{$company->zip_code}}</td>
                             </tr>
 
                             <tr>
                                 <td>Owner Name</td>
-                                <td>{{$restaurant->owner_name}}</td>
+                                <td>{{$company->owner_name}}</td>
                             </tr>
 
                             <tr>
                                 <td>Owner Contact</td>
-                                <td>{{$restaurant->owner_contact_number}}</td>
+                                <td>{{$company->owner_contact_number}}</td>
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{$restaurant->current_category}}</td>
+                                <td>{{$company->current_category}}</td>
                             </tr>
                             <tr>
                                 <td>Last Inspection Date</td>
-                                <td>{{$restaurant->last_inspection_date}}</td>
+                                <td>{{$company->inspection_date}}</td>
                             </tr>
                             <td>Last Inspected By</td>
-                            <td>{{$restaurant->inspected_by}}</td>
+                            <td>{{$company->inspected_by}}</td>
                             </tr>
+                            <td>Last Inspected By</td>
+                            <td>{{$company->inspected_by_designation}}</td>
+                            </tr>
+
                             </tbody>
                         </table>
 
-                        <a href="/restaurant/edit/{{$restaurant->restaurant_id}}}" class="btn btn-primary">Edit</a>
+                        <a href="/company/edit/{{$company->company_id}}}" class="btn btn-primary">Edit</a>
                         <td class="txt-dark">
                             <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Inspect</a>
                         </td>
                         <td class="txt-dark">
 
                         </td>
-                        <a href="/restaurantlist" class="btn btn-primary">Back to List</a>
+                        <a href="/companylist" class="btn btn-primary">Back to List</a>
                     </div>
                 </div>
             </div>
 
         </div>
         {{-- Tab Selection--}}
+        @endforeach
         <div class="row">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#inspections">Inspections</a></li>
                 <li><a data-toggle="tab" href="#ratings">Ratings</a></li>
-                <li><a data-toggle="tab" href="#complains">Comments</a></li>
+                <li><a data-toggle="tab" href="#comments">Comments</a></li>
 
             </ul>
         </div>
@@ -111,7 +116,9 @@
                                             <tr>
                                                 <th>Inspection Date</th>
                                                 <th>Inspected By</th>
+                                                <th>Designation</th>
                                                 <th>Inspected Category</th>
+                                                <th>Notes</th>
                                                 <th></th>
 
                                             </tr>
@@ -123,8 +130,10 @@
                                                 <tr>
                                                     <td class="txt-dark">{{$inspection->inspection_date}}</td>
                                                     <td class="txt-dark">{{$inspection->inspected_by}}</td>
+                                                    <td class="txt-dark">{{$inspection->inspected_by_designation}}</td>
                                                     <td class="txt-dark">{{$inspection->current_category}}</td>
-                                                    <td class="txt-dark"><a href="#">Edit</a></td>
+                                                    <td class="txt-dark">{{$inspection->notes}}</td>
+
 
                                                 </tr>
 
@@ -188,8 +197,8 @@
 
 
         </div>
-        {{-- Complains Tab--}}
-        <div id="complains" class="tab-pane fade in ">
+        {{-- comments Tab--}}
+        <div id="comments" class="tab-pane fade in ">
             <div class="col-sm-12">
                 <div class="panel panel-default card-view">
                     <div class="panel-wrapper collapse in">
@@ -199,9 +208,9 @@
 
                                 <div class="table-responsive">
 
-                                    <div id="complains_table">
+                                    <div id="comments_table">
 
-                                        <table id="complainsTable" class="HTMLtoPDF table display responsive product-overview mb-30 myTable">
+                                        <table id="commentsTable" class="HTMLtoPDF table display responsive product-overview mb-30 myTable">
                                             <thead>
                                             <tr>
                                                 <th>Comment By</th>
@@ -210,13 +219,13 @@
 
                                             </tr>
                                             </thead>
-                                            <tbody id="complains_list">
+                                            <tbody id="comments_list">
 
-                                            @foreach($complains as $complain)
+                                            @foreach($comments as $comment)
 
                                                 <tr>
-                                                    <td class="txt-dark">{{$complain->rate}}</td>
-                                                    <td class="txt-dark">{{$complain->user_id}}</td>
+                                                    <td class="txt-dark">{{$comment->rate}}</td>
+                                                    <td class="txt-dark">{{$comment->user_id}}</td>
 
                                                 </tr>
 
@@ -251,18 +260,18 @@
 
 
                         <!-- BEGIN REGISTER FORM -->
-                        <form class="form-content" id="inspection-form" action="/restaurant/addinspection" method="post" enctype="multipart/form-data">
+                        <form class="form-content" id="inspection-form" action="/company/addinspection" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
 
-                            <input hidden name="form_restaurant_id" id="form_restaurant_id" value="{{$restaurant->restaurant_id}}">
-                            <input hidden name="form_id" id="form_id" value="{{$restaurant->id}}">
+                            <input hidden name="form_company_id" id="form_company_id" value="{{$company->company_id}}">
+                            <input hidden name="form_id" id="form_id" value="{{$company->id}}">
 
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="p_type">Inspection Date</label>
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input required id="form_inspection_date" name="form_inspection_date" type="text" class="form-control"  placeholder="Please enter inspection date yyyy-mm-dd">
+                                    <div class="input-group " data-provide="">
+                                        <input required  id="form_inspection_date" name="form_inspection_date" type="text" class="form-control" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"  placeholder="yyyy-mm-dd">
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-th"></span>
                                         </div>
@@ -273,9 +282,9 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <label for="p_type">Restaurant Category</label>
+                                    <label for="p_type">Select Category</label>
                                     <select required name="form_category" id="form_category">
-                                        <option >Select Category</option>
+
                                         @foreach($categorys as $category)
                                             <option value="{{$category->title}}">{{$category->title}}</option>
                                         @endforeach
@@ -286,12 +295,23 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label for="title">Inspected By<span>* </span></label>
-                                    <input required  type="text" name="form_inspected_by" id="form_inspected_by"   placeholder="Please enter inspected_by">
+                                    <input required  type="text" name="form_inspected_by" id="form_inspected_by"   placeholder="Please enter inspected by">
                                     <label style="color: #fff;">{{$errors->first('inspected_by')}}</label>
                                 </div>
                             </div>
-
-
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="title">Designation<span>* </span></label>
+                                    <input required  type="text" name="form_designation" id="form_designation"   placeholder="Please enter designation">
+                                    <label style="color: #fff;">{{$errors->first('form_designation')}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="title">Note<span> </span></label>
+                                    <textarea  rows="4" cols="50" name="form_notes" id="form_notes" maxlength="200"></textarea>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <button onclick="" name="register-submit" type="submit" class="button green">Add  Inspection</button>
@@ -312,6 +332,7 @@
         @endsection
 
 @section('scripts')
+
             <script src="{{asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
             <script src="{{ URL::asset('assets/js/datepicker.js') }}"></script>
             <script src="{{ URL::asset('assets/js/inspection/inspection.js') }}"></script>
@@ -319,20 +340,25 @@
             <script src="{{ URL::asset('assets/js/qrcode.min.js') }}"></script>
 
 
+            <script src="{{ URL::asset('assets/js/company/companyDetails.js') }}"></script>
 
-            <script src="{{ URL::asset('assets/js/restaurant/restaurantDetails.js') }}"></script>
             <script>
                 $(document).ready(function(){
-                    $('#inspectionTable').dataTable();
-                    $('#ratingsTable').dataTable();
-                    $('#complainsTable').dataTable();
+
+
+
+                        $('#inspectionTable').dataTable();
+                        $('#ratingsTable').dataTable();
+                        $('#commentsTable').dataTable();
+
+
+
 
                     $.fn.datepicker.defaults.format = "yyyy-mm-dd";
 
-                    $('#form_inspection_date').datepicker({
 
 
-                    });
+
 
 
 

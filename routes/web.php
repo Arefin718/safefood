@@ -31,17 +31,17 @@ Route::get('/categorylist','CategoryController@CategoryList')->name('admin.categ
 Route::get('/category/edit/{id}','CategoryController@EditCategory')->name('admin.editCategory');
 Route::post('/category/edit/{id}','CategoryController@EditCategoryPost');
 
-Route::get('/addrestaurant','RestaurantController@AddRestaurant')->name('admin.addRestaurant');
-Route::post('/addrestaurant','RestaurantController@AddRestaurantPost');
-Route::get('/restaurantlist','RestaurantController@RestaurantList')->name('admin.restaurantList');
-Route::get('/restaurantlist/closed','RestaurantController@ClosedRestaurantList')->name('admin.closedRestaurantList');
-Route::post('/restaurant/changestatus','RestaurantController@RestaurantStatusChange')->name('admin.restaurantStatus');
-Route::get('/restaurant/details/{id}','RestaurantController@RestaurantDetails')->name('admin.restaurantDetails');
-Route::get('/restaurant/edit/{id}','RestaurantController@EditRestaurant')->name('admin.editRestaurant');
-Route::post('/restaurant/edit/{id}','RestaurantController@EditRestaurantPost');
-Route::get('/restaurant/details/{id}','RestaurantController@RestaurantDetails')->name('admin.restaurantDetails');
+Route::get('/addCompany','CompanyController@AddCompany')->name('admin.addCompany');
+Route::post('/addCompany','CompanyController@AddCompanyPost');
+Route::get('/companylist','CompanyController@CompanyList')->name('admin.companyList');
+Route::get('/companylist/closed','CompanyController@ClosedCompanyList')->name('admin.closedCompanyList');
+Route::post('/company/changestatus','CompanyController@CompanyStatusChange')->name('admin.companyStatus');
+Route::get('/company/details/{id}','CompanyController@CompanyDetails')->name('admin.companyDetails');
+Route::get('/company/edit/{id}','CompanyController@EditCompany')->name('admin.editCompany');
+Route::post('/company/edit/{id}','CompanyController@EditCompanyPost');
+Route::get('/company/details/{id}','CompanyController@CompanyDetails')->name('admin.companyDetails');
 
-Route::post('/restaurant/addinspection','InspectionController@AddInspectionPost');
+Route::post('/company/addinspection','InspectionController@AddInspectionPost');
 Route::get('/inspection/inspectionlist','InspectionController@InspectionList')->name('admin.inspectionList');
 Route::get('/inspection/inspectionlist','InspectionController@InspectionList')->name('admin.inspectionList');
 Route::get('/inspection/inspectionofthemonth','InspectionController@InspectionsoftheMonth')->name('admin.inspectionoftheMonth');
@@ -53,8 +53,8 @@ Route::get('/inspection/inspectionexpired','InspectionController@InspectionExpir
 
 
 //User
-Route::get('/user/searchrestaurant','UserController@SearchRestaurant')->name('user.searchRestaurant');
-Route::post('/user/searchrestaurant','UserController@SearchRestaurantPost');
+Route::get('/user/searchCompany','UserController@SearchCompany')->name('user.searchCompany');
+Route::post('/user/searchCompany','UserController@SearchCompanyPost');
 
 
 //Admin Group

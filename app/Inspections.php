@@ -11,7 +11,7 @@ class Inspections extends Model
 $inspections=DB::select("
 SELECT
 id,
-    restaurant_id,
+    company_id,
     inspected_by,
     current_category,
     MAX(inspection_date) as inspection_date,
@@ -21,7 +21,7 @@ FROM
     WHERE next_inspection LIKE '$current_date-%'
 GROUP BY
 id,
-    restaurant_id,
+    company_id,
     next_inspection,
     inspected_by,
     current_category
@@ -33,7 +33,7 @@ return $inspections;
         $inspections=DB::select("
 SELECT
 id,
-    restaurant_id,
+    company_id,
     inspected_by,
     current_category,
     MAX(inspection_date) as inspection_date,
@@ -45,7 +45,7 @@ FROM
     TIMESTAMPDIFF(MONTH,next_inspection, $current_date) >=1
 GROUP BY
 id,
-    restaurant_id,
+    company_id,
     next_inspection,
     inspected_by,
     current_category

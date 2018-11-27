@@ -15,13 +15,13 @@ class CreateInspectionsTable extends Migration
     {
         Schema::create('inspections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('restaurant_id');
+            $table->string('company_id');
             $table->date('inspection_date');
             $table->date('next_inspection');
             $table->string('current_category');
             $table->string('inspected_by');
             $table->string('inspected_by_designation');
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->boolean("status")->default('1');
 
 

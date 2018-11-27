@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Restaurants;
+use App\Companys;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +14,7 @@ class UserController extends Controller
     public function SearchRestaurantPost(Request $request){
 
         $key_words=$request->input('key_word');
-        $restaurants=Restaurants::SearchRestaurantByKeywords($key_words);
+        $restaurants=Companys::SearchRestaurantByKeywords($key_words);
 
         return $restaurants;
     }

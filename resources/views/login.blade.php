@@ -26,7 +26,7 @@
 
 </head>
 <body>
-<div class="content bg-image" style="background-image: url('assets/images/login.jpg');">
+<div class="content bg-image" style="/*background-image: url('assets/images/login.jpg');*/">
     <div class="container full-height" >
 
         <div class="title m-b-md">
@@ -34,12 +34,11 @@
         </div>
 
 
-        <div class="row ">
+        <div class="row m-b-md">
             <!-- Sign-in -->
 
-            <div class="col-md-6 col-sm-6 sign-in centered">
+            <div class="col-md-12 col-sm-12  centered" >
                 <h4 class="">Sign in</h4>
-
 
                 <form class="register-form outer-top-xs" role="form" method="post">
                     @csrf

@@ -86,6 +86,6 @@
 @endsection
 @section('scripts')
     <script src="{{asset('vendors/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ URL::asset('assets/js/restaurant/restaurantList.js') }}"></script>
+    <script src="{{ URL::asset('company') }}"></script>
 
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComplainsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateComplainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('complains', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->string('user_name')->nullable();
-            $table->string('contact')->nullable();
-            $table->string('restaurant_id')->nullable();
-            $table->string('restaurant_name')->nullable();
+            $table->string('company_id')->nullable();
             $table->string('description');
 
             $table->timestamps();
@@ -33,6 +30,6 @@ class CreateComplainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complain');
+        Schema::dropIfExists('comments');
     }
 }

@@ -17,16 +17,16 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="form-title text-center">Add New Restaurant</h2>
+                        <h2 class="form-title text-center">Add New Food Company</h2>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <label for="title">Restaurant ID<span>* </span></label>
-                        <input required  type="text" name="restaurant_id" id="restaurant_id"   placeholder="Please Enter Restaurant ID">
-                        <label style="color: #fff;">{{$errors->first('restaurant_id')}}</label>
+                        <label for="title">Company ID<span>* </span></label>
+                        <input required  type="text" name="company_id" id="company_id"   placeholder="Please Enter Restaurant ID">
+                        <label style="color: #fff;">{{$errors->first('company_id')}}</label>
 
 
                     </div>
@@ -125,7 +125,7 @@
                 </div>
 
 
-                <div class="row">
+               {{-- <div class="row">
                     <div class="col-sm-12">
                         <label for="p_type">Inspection Date</label>
                         <div class="input-group date" data-provide="datepicker">
@@ -156,7 +156,8 @@
                         <input required  type="text" name="inspected_by" id="inspected_by"   placeholder="Please enter inspected_by">
                         <label style="color: #fff;">{{$errors->first('inspected_by')}}</label>
                     </div>
-                </div>
+                </div>--}}
+
                 <div class="row">
                     <div class="col-sm-12">
                         <button name="register-submit" type="submit" class="button green">Add Restaurant</button>
