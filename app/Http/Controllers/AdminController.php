@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function AddAdmin(){
-            return "Add Admin";
+            return view('admin.addAdmin');
     }
 
-    public function AddAdminPost(){
-        return "Add Admin";
+    public function AddAdminPost(Request $request){
+
     }
 
 

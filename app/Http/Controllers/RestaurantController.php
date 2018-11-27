@@ -16,6 +16,7 @@ class RestaurantController extends Controller
     }
 
     public function AddRestaurantPost(Request $request){
+        $restaurant_id=$request->input('restaurant_id');
         $title_english=$request->input('title_english');
         $title_bangla=$request->input('title_bangla');
         $location_english=$request->input('location_english');
@@ -30,28 +31,17 @@ class RestaurantController extends Controller
         $last_inspection_date=$request->input('last_inspection_date');
         $inspected_by=$request->input('inspected_by');
 
-        $date_time=date('ymdhis');
+        $this
+            ->validate($request,[
+                'restaurant_id'       =>'unique:restaurants,restaurant_id',
+            ],
+                [
 
-        if($division=="Dhaka"){
-            $restaurant_id="DHK".$zip_code.$date_time;
-        }elseif ($division=="Barisal"){
-            $restaurant_id="BAR".$zip_code.$date_time;
-        }elseif ($division=="Chittagong"){
-            $restaurant_id="CHT".$zip_code.$date_time;
-        }elseif ($division=="Khulna"){
-            $restaurant_id="KHU".$zip_code.$date_time;
-        }elseif ($division=="Mymensingh"){
-            $restaurant_id="MYM".$zip_code.$date_time;
-        }elseif ($division=="Rajshahi"){
-            $restaurant_id="RAJ".$zip_code.$date_time;
-        }elseif ($division=="Rangpur"){
-            $restaurant_id="RNG".$zip_code.$date_time;
-        }elseif ($division=="Sylhet"){
-            $restaurant_id="SYL".$zip_code.$date_time;
-        }
+                    'restaurant_id.unique'          => 'Restaurant ID already exist',
+                ]);
 
        // return $restaurant_id;
-
+        $added_by=session()->get('admin.id');
         $restaurant=new Restaurants();
         $restaurant->restaurant_id  =   $restaurant_id;
         $restaurant->title_english  =   $title_english;
@@ -64,10 +54,8 @@ class RestaurantController extends Controller
         $restaurant->zip_code  =   $zip_code;
         $restaurant->owner_name  =   $owner_name;
         $restaurant->owner_contact_number  =   $owner_contact_number;
+        $restaurant->added_by  =   $added_by;
 
-        $restaurant->current_category  =   $current_category;
-        $restaurant->last_inspection_date  =   $last_inspection_date;
-        $restaurant->inspected_by  =   $inspected_by;
         $restaurant->save();
         return redirect()->route('admin.restaurantList');
 
@@ -87,14 +75,14 @@ class RestaurantController extends Controller
 
     public function RestaurantStatusChange(Request $request){
         $restaurant = Restaurants::find($request->id);
-
+        $updated_by=session()->get('admin');
         if($restaurant->status==0){
             $restaurant->status=1;
         }
         else if($restaurant->status==1){
             $restaurant->status=0;
         }
-
+$restaurant->updated_by=$updated_by;
         $restaurant->save();
 
         return "Status Changed";
@@ -133,7 +121,7 @@ class RestaurantController extends Controller
 
 
 
-
+        $updated_by=session()->get('admin.id');
         $restaurant_id=$request->input('restaurant_id');
         $id=$request->input('id');
         $restaurant=Restaurants::find($id);
@@ -148,7 +136,7 @@ class RestaurantController extends Controller
         $restaurant->zip_code  =   $zip_code;
         $restaurant->owner_name  =   $owner_name;
         $restaurant->owner_contact_number  =   $owner_contact_number;
-
+        $restaurant->updated_by=$updated_by;
         $restaurant->save();
         return redirect()->route('admin.restaurantList');
 

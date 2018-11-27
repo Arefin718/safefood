@@ -16,7 +16,7 @@ class InspectionController extends Controller
         $current_category=$request->input('form_category');
         $next_inspection = date('Y-m-d', strtotime("+3 months", strtotime($inspection_date)));
 
-
+        $added_by=session()->get('admin.id');
         $restaurant=Restaurants::find($id);
         $restaurant->current_category=$current_category;
         $restaurant->last_inspection_date=$inspection_date;
@@ -29,6 +29,8 @@ class InspectionController extends Controller
         $inspection->inspection_date=$inspection_date;
         $inspection->inspected_by=$inspected_by;
         $inspection->next_inspection=$next_inspection;
+        $inspection->added_by=$added_by;
+
         $inspection->save();
 
 

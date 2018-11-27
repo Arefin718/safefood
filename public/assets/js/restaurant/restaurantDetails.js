@@ -19,7 +19,7 @@ function makeCode () {
 
     qrcode.makeCode(elText);
 
-    printImg();
+   // printImg();
 
 
 }

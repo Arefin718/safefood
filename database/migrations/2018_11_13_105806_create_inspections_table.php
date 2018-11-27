@@ -20,6 +20,13 @@ class CreateInspectionsTable extends Migration
             $table->date('next_inspection');
             $table->string('current_category');
             $table->string('inspected_by');
+            $table->string('inspected_by_designation');
+            $table->string('notes');
+            $table->boolean("status")->default('1');
+
+
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

@@ -33,11 +33,13 @@ class CreateRestaurantsTable extends Migration
             $table->string('owner_name');
             $table->string('owner_contact_number');
 
-            $table->date('inspection_date');
-            $table->string('current_category');
-            $table->string('inspected_by');
-            $table->boolean("status")->default('1');
+           // $table->date('inspection_date');
+           // $table->string('current_category');
+           // $table->string('inspected_by');
 
+            $table->boolean("status")->default('1');
+            $table->integer('added_by');
+            $table->integer('updated_by')->nullable();
 
             $table->timestamps();
         });

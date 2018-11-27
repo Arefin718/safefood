@@ -27,10 +27,11 @@ class CategoryController extends Controller
                     'title.unique'          => 'This title exist ',
                 ]);
 
-
+$added_by=session()->get('admin.id');
         $category=New Categorys();
         $category->title          =$title;
         $category->description    =$description;
+        $category->added_by    =$added_by;
 
         $category->save();
 

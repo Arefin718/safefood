@@ -12,6 +12,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
         <div id="qrcode"></div>
+        <a onclick="makeCode()" type="button" class="btn btn-primary">Generate QR</a>
 
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -72,7 +73,7 @@
                             <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Inspect</a>
                         </td>
                         <td class="txt-dark">
-                            <a onclick="makeCode()" type="button" class="btn btn-primary">Print QR</a>
+
                         </td>
                         <a href="/restaurantlist" class="btn btn-primary">Back to List</a>
                     </div>
