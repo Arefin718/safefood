@@ -89,7 +89,13 @@
                             <option value="Uttara">Uttara</option>
                             <option value="Badda">Badda</option>
                             <option value="Banani">Banani</option>
+                            <option value="Motijheel">Motijheel</option>
                             <option value="Gulshan">Gulshan</option>
+                            <option value="Dilkusha">Dilkusha</option>
+                            <option value="Paltan">Paltan</option>
+                            <option value="Fokirerpul">Fokirerpul</option>
+                            <option value="Bijoy Nagar">Bijoy Nagar</option>
+
                         </select>
                     </div>
                 </div>
