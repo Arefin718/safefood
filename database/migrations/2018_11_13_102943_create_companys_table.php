@@ -16,12 +16,12 @@ class CreateCompanysTable extends Migration
         Schema::create('companys', function (Blueprint $table) {
             $table->increments('id');
             $table->string('company_id')->unique();
-            $table->string('title_english');
+            $table->string('title_english')->nullable();;
             $table->string('title_bangla')->nullable();
-            $table->string('location_english');
-            $table->string('division_english');
-            $table->string('city_english');
-            $table->string('thana_upazila_english');
+            $table->string('location_english')->nullable();;
+            $table->string('division_english')->nullable();;
+            $table->string('city_english')->nullable();;
+            $table->string('thana_upazila_english')->nullable();;
             $table->string('location_bangla')->nullable();
             $table->string('division_bangla')->nullable();
             $table->string('city_bangla')->nullable();
@@ -30,8 +30,8 @@ class CreateCompanysTable extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
 
-            $table->string('owner_name');
-            $table->string('owner_contact_number');
+            $table->string('owner_name')->nullable();;
+            $table->string('owner_contact_number')->nullable();;
 
            // $table->date('inspection_date');
            // $table->string('current_category');
