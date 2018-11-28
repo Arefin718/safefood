@@ -26,7 +26,7 @@ class CreateCompanysTable extends Migration
             $table->string('division_bangla')->nullable();
             $table->string('city_bangla')->nullable();
             $table->string('thana_upazila_bangla')->nullable();
-            $table->string('zip_code');
+            $table->string('zip_code')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
 
