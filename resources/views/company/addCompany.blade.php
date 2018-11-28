@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="form-title text-center">Add New Food Company</h2>
-                    </div>
+                    </div> 
                 </div>
 
 
