@@ -22,15 +22,7 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label for="title">Company ID<span>* </span></label>
-                        <input required  type="text" name="company_id" id="company_id"   placeholder="Please Enter Restaurant ID">
-                        <label style="color: #fff;">{{$errors->first('company_id')}}</label>
 
-
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Title (in English)<span>* </span></label>

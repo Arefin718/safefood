@@ -16,7 +16,9 @@ class CompanyController extends Controller
     }
 
     public function AddCompanyPost(Request $request){
-        $company_id=$request->input('company_id');
+        $date=date('ymdhms');
+        $company_id="BFSA".$date;
+
         $title_english=$request->input('title_english');
         $title_bangla=$request->input('title_bangla');
         $location_english=$request->input('location_english');
