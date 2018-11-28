@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Title (in English)<span>* </span></label>
-                        <input required  type="text" name="title_english" id="title_english"   placeholder="Please Enter Restaurant Title" required>
+                        <input   type="text" name="title_english" id="title_english"   placeholder="Please Enter Restaurant Title" required>
                         <label style="color: #fff;">{{$errors->first('title')}}</label>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Address (in English)<span>* </span></label>
-                        <input required  type="text" name="location_english" id="location_english"   placeholder="Please Enter Restaurant Address" required >
+                        <input   type="text" name="location_english" id="location_english"   placeholder="Please Enter Restaurant Address" required >
                         <label style="color: #fff;">{{$errors->first('location_english')}}</label>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     <div class="col-sm-12">
 
                         <label for="city">District</label>
-                        <select  required name="city" id="city">
-                            <option value="">Select</option>
+                        <select   name="city" id="city">
+                            <option value=""></option>
                             <option value="Dhaka">Dhaka</option>
 
                         </select>
@@ -84,8 +84,8 @@
                     <div class="col-sm-12">
 
                         <label for="city">Thana/Upazila</label>
-                        <select  required name="thana_upazila" id="thana_upazila">
-                            <option value="">Select</option>
+                        <select   name="thana_upazila" id="thana_upazila">
+                            <option value=""></option>
                             <option value="Uttara">Uttara</option>
                             <option value="Badda">Badda</option>
                             <option value="Banani">Banani</option>
@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Zip Code<span>* </span></label>
-                        <input required  type="text" name="zip_code" id="zip_code"   placeholder="Please Enter Zip Code">
+                        <input   type="text" name="zip_code" id="zip_code"   placeholder="Please Enter Zip Code">
                         <label style="color: #fff;">{{$errors->first('zip_code')}}</label>
                     </div>
                 </div>
@@ -104,14 +104,14 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Owner Name<span>* </span></label>
-                        <input required  type="text" name="owner_name" id="owner_name"   placeholder="Please Enter Owner Name">
+                        <input   type="text" name="owner_name" id="owner_name"   placeholder="Please Enter Owner Name">
                         <label style="color: #fff;">{{$errors->first('owner_name')}}</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Owner Contact<span>* </span></label>
-                        <input required  type="text" name="owner_contact_number" id="owner_contact_number"   placeholder="Please Enter Owner Number">
+                        <input   type="text" name="owner_contact_number" id="owner_contact_number"   placeholder="Please Enter Owner Number">
                         <label style="color: #fff;">{{$errors->first('owner_contact_number')}}</label>
                     </div>
                 </div>
