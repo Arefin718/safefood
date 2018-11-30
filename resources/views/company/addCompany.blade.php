@@ -5,12 +5,24 @@
 <link rel="stylesheet" href="{{ URL::asset('assets/css/normalize.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/form-styles.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('assets/css/datepicker.css') }}">
+@section('styles')
+    <style>
+        #geomap {
+            width: 70%;
+            height: 400px;
+        }
+    </style>
+    @endsection
 @section('content')
 
     <div class="container-fluid" style="background-color: seashell">
         <div class="form-wrapper">
 
-
+            <div class="container">
+                <div class="col-md-12 text-center">
+                    <div id="geomap"></div>
+                </div>
+            </div>
             <!-- BEGIN REGISTER FORM -->
             <form class="form-content" id="register-form" action="#" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -40,7 +52,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="title">Address (in English)<span>* </span></label>
-                        <input onclick="GetAddress()"   type="text" name="location_english" id="location_english"   placeholder="Please Enter Restaurant Address" required >
+                        <input    type="text" name="location_english" id="search_location"   placeholder="Please Enter Restaurant Address" required >
                         <label style="color: #fff;">{{$errors->first('location_english')}}</label>
                     </div>
                 </div>
@@ -162,7 +174,8 @@
                         <label style="color: #fff;">{{$errors->first('inspected_by')}}</label>
                     </div>
                 </div>--}}
-
+                <input name="latitude" type="hidden" class="search_latitude">
+                <input name="longitude" type="hidden" class="search_longitude">
                 <div class="row">
                     <div class="col-sm-12">
                         <button name="register-submit" type="submit" class="button green">Add Restaurant</button>
@@ -180,71 +193,9 @@
 @endsection
 @section('scripts')
     <script src="{{ URL::asset('assets/js/datepicker.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/jquery-ui.js') }}"></script>
     <script src="{{ URL::asset('assets/js/company/addCompany.js') }}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqEJeUG6el1uAtNYRLvMBWr3tLasd2GhA"></script>
 
 
-    <script type="text/javascript">
-
-        $(document).ready(function() {
-            alert("test");
-            $.fn.datepicker.defaults.format = "yyyy-mm-dd";
-
-            $('.reg_date').datepicker({
-
-
-            });
-
-
-            var uploadField = document.getElementById("company_image");
-            var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
-            uploadField.onchange = function() {
-                if(this.files[0].size > 2000000){
-                    alert("File is too big!");
-                    this.value = "";
-                }else{
-                    var sFileName = uploadField.value;
-                    var fileExtension=filename.split('.').pop();
-                    var blnValid=false;
-                    for (var j = 0; j < _validFileExtensions.length; j++) {
-                        var sCurExtension = _validFileExtensions[j];
-                        if (fileExtension==sCurExtension.toLowerCase()) {
-                            blnValid = true;
-                            break;
-                        }
-                    }
-
-                    if (!blnValid) {
-                        alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
-                        return false;
-                    }
-                }
-            }
-
-
-        });
-
-
-        public GetAddress()
-        {
-            var address = $('#location_english').val();
-            if(address != null) {
-                jQuery.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: "http://maps.googleapis.com/maps/api/geocode/json",
-                    data: {'address': address, 'sensor': false},
-                    success: function (data) {
-                        if (data.results.length) {
-                            jQuery('#latitude').val(data.results[0].geometry.location.lat);
-                            jQuery('#longitude').val(data.results[0].geometry.location.lng);
-                            console.log(jQuery('#latitude').val(data.results[0].geometry.location.lat));
-                        } else {
-                            jQuery('#latitude').val('invalid address');
-                            jQuery('#longitude').val('invalid address');
-                        }
-                    }
-                });
-            }
-        }
-    </script>
 @endsection

@@ -20,8 +20,9 @@ Route::get('/logout','HomeController@Logout')->name('logout');
 //Admin Routes start
 Route::get('/home','HomeController@AdminHome')->name('home');
 
-Route::get('/addadmin','AdminController@AddAdmin')->name('admin.addAdmin');
-Route::post('/addadmin','AdminController@AddAdminPost');
+Route::get('/admin/create','AdminController@AddAdmin')->name('admin.addAdmin');
+Route::post('/admin/create','AdminController@AddAdminPost');
+Route::get('/admin/list','AdminController@AdminList')->name('admin.adminList');
 
 Route::get('/addcategory','CategoryController@AddCategory')->name('admin.addCategory');
 Route::post('/addcategory','CategoryController@AddCategoryPost');
@@ -50,7 +51,14 @@ Route::get('/inspection/inspectionexpired','InspectionController@InspectionExpir
 
 
 //Admin Routes end
+//Admin Profile start
+Route::get('/admin/profile/view','ProfileController@AdminProfileView')->name('admin.profileView');
+Route::post('/admin/profile/view','ProfileController@AdminProfileViewPost');
+Route::get('/admin/passwordchange','ProfileController@AdminPasswordChange')->name('admin.passwordChange');
+Route::post('/admin/passwordchange','ProfileController@AdminPasswordChangePost');
 
+
+//Admin Profile end
 
 //User
 Route::get('/user/searchCompany','UserController@SearchCompany')->name('user.searchCompany');

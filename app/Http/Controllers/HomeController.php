@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Admin;
 
 
+use App\Logins;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -41,6 +42,9 @@ class HomeController extends Controller
             if($password == $adminDB->password){
                 session(['admin' => $adminDB]);
 
+                $login=new Logins();
+                $login->login_id=$adminDB->id;
+                $login->save();
 
 
                 if($adminDB->status ==0){

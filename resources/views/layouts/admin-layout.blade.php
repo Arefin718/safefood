@@ -151,10 +151,10 @@
 
                     <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                         <li>
-                            <a href="#"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+                            <a href="/admin/profile/view"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                         </li>
                         <li>
-                            <a href="#"><i class="zmdi zmdi-account"></i><span>Change Password</span></a>
+                            <a href="/admin/passwordchange"><i class="zmdi zmdi-account"></i><span>Change Password</span></a>
                         </li>
                         <li>
                             <a href="#"><i class="zmdi zmdi-account"></i><span>My Activities</span></a>
@@ -193,10 +193,10 @@
                 </a>
                 <ul id="admin_menu" class="collapse collapse-level-1">
                     <li>
-                        <a href="#">Add Admin</a>
+                        <a href="/admin/create">Create Admin</a>
                     </li>
                     <li>
-                        <a href="#">Admin List</a>
+                        <a href="/admin/list">Admin List</a>
                     </li>
 
                 </ul>
@@ -290,13 +290,13 @@
             </li>
             {{-- Area Menu--}}
             <li>
-                <a href="#" data-toggle="collapse" data-target="#user_menu">
+                <a href="#" data-toggle="collapse" data-target="#area_menu">
                     <div class="pull-left"><i class="zmdi zmdi-map mr-20"></i><span
                                 class="right-nav-text">Area</span></div>
                     <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
                     <div class="clearfix"></div>
                 </a>
-                <ul id="user_menu" class="collapse collapse-level-1">
+                <ul id="area_menu" class="collapse collapse-level-1">
                     <li>
                         <a href="#">Add New Area</a>
                     </li>
