@@ -51,8 +51,9 @@ LEFT JOIN inspections ON inspections.created_at =(
         company_id = companys.company_id
 )
 WHERE
-    companys.company_id = $company_id
+    companys.company_id = '$company_id'
     LIMIT 1
+    
     ");
 
     return $company;

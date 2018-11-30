@@ -23,15 +23,14 @@ class CreateCompanysTable extends Migration
             $table->string('city_english')->nullable();;
             $table->string('thana_upazila_english')->nullable();;
             $table->string('location_bangla')->nullable();
-            $table->string('division_bangla')->nullable();
-            $table->string('city_bangla')->nullable();
-            $table->string('thana_upazila_bangla')->nullable();
+
             $table->string('zip_code')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
 
             $table->string('owner_name')->nullable();;
             $table->string('owner_contact_number')->nullable();;
+            $table->string('image')->nullable();;
 
            // $table->date('inspection_date');
            // $table->string('current_category');
