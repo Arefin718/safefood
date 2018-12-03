@@ -15,10 +15,8 @@ class AdminLoginCheck
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->has('admin')){
-
-                return redirect()->route('home');
-
+        if ($request->session()->get('admin')) {
+            return $next($request);
         }else{
             return redirect()->route('login');
         }

@@ -25,6 +25,8 @@
                                         <th>Address</th>
                                         <th>Owner Name</th>
                                         <th>Owner Contact</th>
+                                        <th>Last Inspection</th>
+                                        <th>Current Category</th>
                                         <th>{{--Details--}}</th>
                                         <th>{{--Edit--}}</th>
                                         <th>{{--Block--}}</th>
@@ -42,6 +44,8 @@
                                             <td class="txt-dark">{{$company->owner_name}}</td>
 
                                             <td class="txt-dark">{{$company->owner_contact_number}}</td>
+                                            <td class="txt-dark">{{$company->inspection_date}}</td>
+                                            <td class="txt-dark">{{$company->quality}}</td>
 
                                             <td><a href="/company/details/{{$company->company_id}}" class="btn btn-primary a-btn-slide-text">
                                                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>

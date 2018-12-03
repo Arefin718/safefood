@@ -15790,7 +15790,7 @@
     localeModule('eu');
 
     test('parse', function (assert) {
-        var tests = 'urtarrila urt._otsaila ots._martxoa mar._apirila api._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
+        var tests = 'urtarrila urt._otsaila ots._martxoa mar._apirila API._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
@@ -15878,7 +15878,7 @@
     });
 
     test('format month', function (assert) {
-        var expected = 'urtarrila urt._otsaila ots._martxoa mar._apirila api._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
+        var expected = 'urtarrila urt._otsaila ots._martxoa mar._apirila API._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }

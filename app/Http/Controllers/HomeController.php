@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Admin;
+use App\Activities;
 
 
 use App\Logins;
@@ -42,9 +43,10 @@ class HomeController extends Controller
             if($password == $adminDB->password){
                 session(['admin' => $adminDB]);
 
-                $login=new Logins();
-                $login->login_id=$adminDB->id;
-                $login->save();
+                $activity=new Activities();
+                $activity->admin_id = $adminDB->admin_id;
+                $activity->description = "Logged In";
+                $activity->save();
 
 
                 if($adminDB->status ==0){

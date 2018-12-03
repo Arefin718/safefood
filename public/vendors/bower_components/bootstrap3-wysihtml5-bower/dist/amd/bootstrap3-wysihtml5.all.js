@@ -4494,7 +4494,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * Whether the browser supports the speech api on the given element
+     * Whether the browser supports the speech API on the given element
      * See http://mikepultz.com/2011/03/accessing-google-speech-api-chrome-11/
      *
      * @example

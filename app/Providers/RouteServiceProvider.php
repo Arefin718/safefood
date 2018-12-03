@@ -57,7 +57,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the "api" routes for the application.
+     * Define the "API" routes for the application.
      *
      * These routes are typically stateless.
      *
@@ -65,9 +65,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
+        Route::prefix('API')
+             ->middleware('API')
              ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+             ->group(base_path('routes/API.php'));
     }
 }

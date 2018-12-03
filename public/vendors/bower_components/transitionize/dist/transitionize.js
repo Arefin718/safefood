@@ -5,7 +5,7 @@
  *
  * @param {String} path
  * @return {Object} exports
- * @api public
+ * @API public
  */
 
 function require(path, parent, orig) {
@@ -63,7 +63,7 @@ require.aliases = {};
  *
  * @param {String} path
  * @return {String} path or null
- * @api private
+ * @API private
  */
 
 require.resolve = function(path) {
@@ -90,7 +90,7 @@ require.resolve = function(path) {
  * @param {String} curr
  * @param {String} path
  * @return {String}
- * @api private
+ * @API private
  */
 
 require.normalize = function(curr, path) {
@@ -117,7 +117,7 @@ require.normalize = function(curr, path) {
  *
  * @param {String} path
  * @param {Function} definition
- * @api private
+ * @API private
  */
 
 require.register = function(path, definition) {
@@ -129,7 +129,7 @@ require.register = function(path, definition) {
  *
  * @param {String} from
  * @param {String} to
- * @api private
+ * @API private
  */
 
 require.alias = function(from, to) {
@@ -144,7 +144,7 @@ require.alias = function(from, to) {
  *
  * @param {String} parent
  * @return {Function}
- * @api private
+ * @API private
  */
 
 require.relative = function(parent) {
@@ -226,7 +226,7 @@ module.exports = Transitionize;
  *
  * @param {Object} element
  * @param {Object} props
- * @api public
+ * @API public
  */
 
 function Transitionize(element, props) {
@@ -241,7 +241,7 @@ function Transitionize(element, props) {
  * Detect if Safari.
  *
  * @returns {Boolean}
- * @api private
+ * @API private
  */
 
 Transitionize.prototype.isSafari = function() {
@@ -252,7 +252,7 @@ Transitionize.prototype.isSafari = function() {
  * Loop though the object and push the keys and values in an array.
  * Apply the CSS3 transition to the element and prefix with -webkit- for Safari.
  *
- * @api private
+ * @API private
  */
 
 Transitionize.prototype.init = function() {

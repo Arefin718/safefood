@@ -359,7 +359,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Jasny Bootstrap\'s JavaScr
   // OFFCANVAS DATA-API
   // =================
 
-  $(document).on('click.bs.offcanvas.data-api', '[data-toggle=offcanvas]', function (e) {
+  $(document).on('click.bs.offcanvas.data-API', '[data-toggle=offcanvas]', function (e) {
     var $this   = $(this), href
     var target  = $this.attr('data-target')
         || e.preventDefault()
@@ -452,7 +452,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Jasny Bootstrap\'s JavaScr
   // ROWLINK DATA-API
   // ==================
 
-  $(document).on('click.bs.rowlink.data-api', '[data-link="row"]', function (e) {
+  $(document).on('click.bs.rowlink.data-API', '[data-link="row"]', function (e) {
     if ($(e.target).closest('.rowlink-skip').length !== 0) return
     
     var $this = $(this)
@@ -816,7 +816,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Jasny Bootstrap\'s JavaScr
   // INPUTMASK DATA-API
   // ==================
 
-  $(document).on('focus.bs.inputmask.data-api', '[data-mask]', function (e) {
+  $(document).on('focus.bs.inputmask.data-API', '[data-mask]', function (e) {
     var $this = $(this)
     if ($this.data('bs.inputmask')) return
     $this.inputmask($this.data())
@@ -1009,7 +1009,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Jasny Bootstrap\'s JavaScr
   // FILEUPLOAD DATA-API
   // ==================
 
-  $(document).on('click.fileinput.data-api', '[data-provides="fileinput"]', function (e) {
+  $(document).on('click.fileinput.data-API', '[data-provides="fileinput"]', function (e) {
     var $this = $(this)
     if ($this.data('bs.fileinput')) return
     $this.fileinput($this.data())

@@ -55,4 +55,23 @@ id,
     }
 
 
+    public static function GetInspectionListByID($company_id){
+        $inspections=DB::select("
+SELECT
+    inspections.*,
+    company_quality_types.title AS quality_category
+FROM
+    inspections
+JOIN company_quality_types ON company_quality_types.company_quality_types_id = inspections.quality_category
+WHERE
+    inspections.company_id = '$company_id'
+ORDER BY
+    inspection_id
+DESC
+    
+    
+");
+        return $inspections;
+    }
+
 }

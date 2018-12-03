@@ -8964,7 +8964,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
  * Converts speech-to-text and inserts this into the editor
  * As of now (2011/03/25) this only is supported in Chrome >= 11
  *
- * Note that it sends the recorded audio to the google speech recognition api:
+ * Note that it sends the recorded audio to the google speech recognition API:
  * http://stackoverflow.com/questions/4361826/does-chrome-have-buil-in-speech-recognition-for-input-type-text-x-webkit-speec
  *
  * Current HTML5 draft can be found here

@@ -1862,7 +1862,7 @@
             var vimeoVideoId = $this.attr('data-vimeo-id');
 
             if (vimeoVideoId) {
-                $.getJSON('//www.vimeo.com/api/v2/video/' + vimeoVideoId + '.json?callback=?', {
+                $.getJSON('//www.vimeo.com/API/v2/video/' + vimeoVideoId + '.json?callback=?', {
                     format: 'json'
                 }, function(data) {
                     $this.find('img').attr('src', data[0][_this.core.s.vimeoThumbSize]);
@@ -2372,7 +2372,7 @@
 
         } else if (isVideo.vimeo) {
 
-            a = '?autoplay=' + autoplay + '&api=1';
+            a = '?autoplay=' + autoplay + '&API=1';
             if (this.core.s.vimeoPlayerParams) {
                 a = a + '&' + $.param(this.core.s.vimeoPlayerParams);
             }
@@ -2381,7 +2381,7 @@
 
         } else if (isVideo.dailymotion) {
 
-            a = '?wmode=opaque&autoplay=' + autoplay + '&api=postMessage';
+            a = '?wmode=opaque&autoplay=' + autoplay + '&API=postMessage';
             if (this.core.s.dailymotionPlayerParams) {
                 a = a + '&' + $.param(this.core.s.dailymotionPlayerParams);
             }

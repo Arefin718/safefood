@@ -6,7 +6,7 @@
  *
  * @param {String} name
  * @return {Object} exports
- * @api public
+ * @API public
  */
 
 function require(name) {
@@ -130,7 +130,7 @@ require.register = function (name, definition) {
  *
  * @param {String} name
  * @param {Generic} exports
- * @api private
+ * @API private
  */
 
 require.define = function (name, exports) {
@@ -1042,7 +1042,7 @@ module.exports = function(el){
  * Initialize a new ClassList for `el`.
  *
  * @param {Element} el
- * @api private
+ * @API private
  */
 
 function ClassList(el) {
@@ -1108,7 +1108,7 @@ ClassList.prototype.remove = function(name){
  *
  * @param {RegExp} re
  * @return {ClassList}
- * @api private
+ * @API private
  */
 
 ClassList.prototype.removeMatching = function(re){
@@ -1208,7 +1208,7 @@ var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
  * @param {Function} fn
  * @param {Boolean} capture
  * @return {Function}
- * @api public
+ * @API public
  */
 
 exports.bind = function(el, type, fn, capture){
@@ -1399,7 +1399,7 @@ module.exports = Events;
  *
  * @param {Object} el
  * @param {Object} obj
- * @api public
+ * @API public
  */
 
 function Events(el, obj) {
@@ -1493,7 +1493,7 @@ Events.prototype.bind = function(event, method){
  *
  * @param {String|Function} [event]
  * @param {String|Function} [method]
- * @api public
+ * @API public
  */
 
 Events.prototype.unbind = function(event, method){
@@ -1544,7 +1544,7 @@ Events.prototype.unbindAllOf = function(event){
  *
  * @param {String} event
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function parse(event) {
@@ -1641,7 +1641,7 @@ Switchery.prototype.hide = function() {
 /**
  * Show custom switch after the target element.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.show = function() {
@@ -1653,7 +1653,7 @@ Switchery.prototype.show = function() {
  * Create custom switch.
  *
  * @returns {Object} this.switcher
- * @api private
+ * @API private
  */
 
 Switchery.prototype.create = function() {
@@ -1682,7 +1682,7 @@ Switchery.prototype.insertAfter = function(reference, target) {
  * Set switch jack proper position.
  *
  * @param {Boolean} clicked - we need this in order to uncheck the input when the switch is clicked
- * @api private
+ * @API private
  */
 
 Switchery.prototype.setPosition = function (clicked) {
@@ -1715,7 +1715,7 @@ Switchery.prototype.setPosition = function (clicked) {
 /**
  * Set speed.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.setSpeed = function() {
@@ -1745,7 +1745,7 @@ Switchery.prototype.setSpeed = function() {
 /**
  * Set switch size.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.setSize = function() {
@@ -1769,7 +1769,7 @@ Switchery.prototype.setSize = function() {
 /**
  * Set switch color.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.colorize = function() {
@@ -1823,7 +1823,7 @@ Switchery.prototype.handleChange = function() {
 /**
  * Handle the switch click event.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.handleClick = function() {
@@ -1850,7 +1850,7 @@ Switchery.prototype.bindClick = function() {
 /**
  * Mark an individual switch as already handled.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.markAsSwitched = function() {
@@ -1860,7 +1860,7 @@ Switchery.prototype.markAsSwitched = function() {
 /**
  * Check if an individual switch is already handled.
  *
- * @api private
+ * @API private
  */
 
 Switchery.prototype.markedAsSwitched = function() {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inspections;
-use App\Companys;
+use App\Companies;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class InspectionController extends Controller
@@ -15,16 +15,33 @@ class InspectionController extends Controller
         $inspected_by=$request->input('form_inspected_by');
         $inspected_by_designation=$request->input('form_designation');
         $notes=$request->input('form_notes');
-        $current_category=$request->input('form_category');
+        $quality_category=$request->input('form_category');
         $next_inspection = date('Y-m-d', strtotime("+3 months", strtotime($inspection_date)));
 
-        $added_by=session()->get('admin.id');
+        $added_by=session()->get('admin.admin_id');
 
+        $file=$request->file('compnay_image');
+
+
+        $company=Companies::find($id);
+        if($file !=null){
+            //File replace Code Start
+            $file_name = $company_id. '.' . $file->getClientOriginalExtension();
+            if(file_exists(public_path('/uploads/company/image/'.$file_name))){
+                //delete existing file
+                File::delete(public_path('/uploads/company/images'.$file_name));
+
+            }
+            $company->image = '/public/uploads/company/images/'.$file_name;
+            $file->move(public_path('/uploads/company/images'), $file_name);
+
+            //File Upload Code End
+        }
 
 
         $inspection=new Inspections();
-        $inspection->company_id=$company_id;
-        $inspection->current_category=$current_category;
+        $inspection->company_id=$company->company_id;
+        $inspection->quality_category=$quality_category;
         $inspection->inspection_date=$inspection_date;
         $inspection->inspected_by=$inspected_by;
         $inspection->inspected_by_designation=$inspected_by_designation;
@@ -35,7 +52,15 @@ class InspectionController extends Controller
         $inspection->save();
 
 
-        return redirect()->route('admin.companyDetails', ['id' => $company_id]);
+
+        $company->company_quality_type_id = $quality_category;
+        $company->inspection_id = $inspection->id;
+
+
+
+        $company->save();
+
+        return redirect()->route('admin.companyDetails',[$company->company_id]);
     }
 
     public function InspectionList(){

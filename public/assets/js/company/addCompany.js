@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 //Image varification
     var uploadField = document.getElementById("company_image");
-    var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    var _validFileExtensions = ["jpg", "jpeg", "bmp", "gif", ".png"];
     uploadField.onchange = function() {
         if(this.files[0].size > 2000000){
             alert("File is too big!");
@@ -10,6 +10,8 @@ $(document).ready(function() {
         }else{
             var sFileName = uploadField.value;
             var fileExtension=sFileName.split('.').pop();
+            console.log(fileExtension);
+
             var blnValid=false;
             for (var j = 0; j < _validFileExtensions.length; j++) {
                 var sCurExtension = _validFileExtensions[j];
@@ -33,7 +35,7 @@ $(document).ready(function() {
     //load google map
     initialize();
 
-
+    DivisionSelect();
 
     /*
      * autocomplete location search
@@ -145,5 +147,63 @@ function initialize() {
         });
     });
 
+}
+
+function DivisionSelect(){
+    $('#division').on('change', function() {
+       // DistrictSelect();
+       $division_id=this.value;
+
+        $.ajax({
+            url: '/districtlist',
+            type: 'GET',
+            data: {'division_id': $division_id},
+            success: function (response) {
+                if(response.length>0) {
+                    var districts="";
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        districts+='<option value="'+response[i]['district_id']+'">'+response[i]['title_english']+'</option>';
+                    }
+
+                }
+                $('#district').html(districts);
+                DistrictSelect();
+
+            },
+            error: function (response) {
+                console.log(response);
+
+            }
+        });
+
+    });
+}
+
+function DistrictSelect(){
+    $('#district').on('change', function() {
+        $district_id=this.value;
+        console.log("district selected");
+        $.ajax({
+            url: '/thanaupazilalist',
+            type: 'GET',
+            data: {'district_id': $district_id},
+            success: function (response) {
+                if(response.length>0) {
+                    var thana_upazila="";
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        thana_upazila+='<option value="'+response[i]['upazila_id']+'">'+response[i]['title_english']+'</option>';
+                    }
+
+                }
+                $('#thana_upazila').html(thana_upazila);
+            },
+            error: function (response) {
+                console.log(response);
+
+            }
+        });
+    });
 }
 

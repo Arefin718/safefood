@@ -38,7 +38,11 @@
                             </tr>
                             <tr>
                                 <td>District</td>
-                                <td>{{$company->city_english}}</td>
+                                <td>{{$company->district}}</td>
+                            </tr>
+                            <tr>
+                                <td>Thana/Upazila</td>
+                                <td>{{$company->upazila}}</td>
                             </tr>
                             <tr>
                                 <td>Zip Code</td>
@@ -56,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{$company->current_category}}</td>
+                                <td>{{$company->quality}}</td>
                             </tr>
                             <tr>
                                 <td>Last Inspection Date</td>
@@ -65,14 +69,14 @@
                             <td>Last Inspected By</td>
                             <td>{{$company->inspected_by}}</td>
                             </tr>
-                            <td>Last Inspected By</td>
+                            <td>Designation</td>
                             <td>{{$company->inspected_by_designation}}</td>
                             </tr>
 
                             </tbody>
                         </table>
 
-                        <a href="/company/edit/{{$company->company_id}}}" class="btn btn-primary">Edit</a>
+                        <a href="/company/edit/{{$company->id}}" class="btn btn-primary">Edit</a>
                         <td class="txt-dark">
                             <a type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Inspect</a>
                         </td>
@@ -131,7 +135,7 @@
                                                     <td class="txt-dark">{{$inspection->inspection_date}}</td>
                                                     <td class="txt-dark">{{$inspection->inspected_by}}</td>
                                                     <td class="txt-dark">{{$inspection->inspected_by_designation}}</td>
-                                                    <td class="txt-dark">{{$inspection->current_category}}</td>
+                                                    <td class="txt-dark">{{$inspection->quality_category}}</td>
                                                     <td class="txt-dark">{{$inspection->notes}}</td>
 
 
@@ -286,7 +290,7 @@
                                     <select required name="form_category" id="form_category">
 
                                         @foreach($categorys as $category)
-                                            <option value="{{$category->title}}">{{$category->title}}</option>
+                                            <option value="{{$category->company_quality_types_id}}">{{$category->title}}</option>
                                         @endforeach
 
                                     </select>
@@ -311,6 +315,14 @@
                                     <label for="title">Note<span> </span></label>
                                     <textarea  rows="4" cols="50" name="form_notes" id="form_notes" maxlength="200"></textarea>
                                 </div>
+                            </div>
+                            <div class="file-tab panel-body">
+                                <label class="btn btn-default btn-file">
+                                    <span>Browse</span>
+                                    <!-- The file is stored here. -->
+                                    <input  type="file" name="compnay_image" id="company_image">
+                                </label>
+                                <button type="button" class="btn btn-default" style="display: none;">Remove</button>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">

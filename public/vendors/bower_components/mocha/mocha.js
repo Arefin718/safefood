@@ -433,7 +433,7 @@ function isArray(obj) {
 /**
  * Event emitter constructor.
  *
- * @api public
+ * @API public
  */
 
 function EventEmitter(){};
@@ -485,7 +485,7 @@ EventEmitter.prototype.once = function (name, fn) {
 /**
  * Removes a listener.
  *
- * @api public
+ * @API public
  */
 
 EventEmitter.prototype.removeListener = function (name, fn) {
@@ -522,7 +522,7 @@ EventEmitter.prototype.removeListener = function (name, fn) {
 /**
  * Removes all listeners for an event.
  *
- * @api public
+ * @API public
  */
 
 EventEmitter.prototype.removeAllListeners = function (name) {
@@ -563,7 +563,7 @@ EventEmitter.prototype.listeners = function (name) {
 /**
  * Emits an event.
  *
- * @api public
+ * @API public
  */
 
 EventEmitter.prototype.emit = function (name) {
@@ -626,7 +626,7 @@ function Progress() {
  *
  * @param {Number} n
  * @return {Progress} for chaining
- * @api public
+ * @API public
  */
 
 Progress.prototype.size = function(n){
@@ -652,7 +652,7 @@ Progress.prototype.text = function(str){
  *
  * @param {Number} n
  * @return {Progress} for chaining
- * @api public
+ * @API public
  */
 
 Progress.prototype.fontSize = function(n){
@@ -784,7 +784,7 @@ Context.prototype.runnable = function(runnable){
  *
  * @param {Number} ms
  * @return {Context} self
- * @api private
+ * @API private
  */
 
 Context.prototype.timeout = function(ms){
@@ -1458,7 +1458,7 @@ function Mocha(options) {
  * Enable or disable bailing on the first failure.
  *
  * @param {Boolean} [bail]
- * @api public
+ * @API public
  */
 
 Mocha.prototype.bail = function(bail){
@@ -1483,7 +1483,7 @@ Mocha.prototype.addFile = function(file){
  * Set reporter to `reporter`, defaults to "dot".
  *
  * @param {String|Function} reporter name or constructor
- * @api public
+ * @API public
  */
 
 Mocha.prototype.reporter = function(reporter){
@@ -1645,7 +1645,7 @@ Mocha.prototype.globals = function(globals){
  *
  * @param {Boolean} colors
  * @return {Mocha}
- * @api public
+ * @API public
  */
 
 Mocha.prototype.useColors = function(colors){
@@ -1675,7 +1675,7 @@ Mocha.prototype.useInlineDiffs = function(inlineDiffs) {
  *
  * @param {Number} timeout
  * @return {Mocha}
- * @api public
+ * @API public
  */
 
 Mocha.prototype.timeout = function(timeout){
@@ -1700,7 +1700,7 @@ Mocha.prototype.slow = function(slow){
  * Makes all tests async (accepting a callback)
  *
  * @return {Mocha}
- * @api public
+ * @API public
  */
 
 Mocha.prototype.asyncOnly = function(){
@@ -2001,7 +2001,7 @@ exports.cursor = {
  * Outut the given `failures` as a list.
  *
  * @param {Array} failures
- * @api public
+ * @API public
  */
 
 exports.list = function(failures){
@@ -2064,7 +2064,7 @@ exports.list = function(failures){
  * of tests passed / failed etc.
  *
  * @param {Runner} runner
- * @api public
+ * @API public
  */
 
 function Base(runner) {
@@ -2186,7 +2186,7 @@ function pad(str, len) {
  *
  * @param {Error} Error with actual/expected
  * @return {String} Diff
- * @api private
+ * @API private
  */
 
 function inlineDiff(err, escape) {
@@ -2252,7 +2252,7 @@ function unifiedDiff(err, escape) {
  *
  * @param {Error} err
  * @return {String}
- * @api private
+ * @API private
  */
 
 function errorDiff(err, type, escape) {
@@ -2270,7 +2270,7 @@ function errorDiff(err, type, escape) {
  *
  * @param {String} line
  * @return {String}
- * @api private
+ * @API private
  */
 function escapeInvisibles(line) {
     return line.replace(/\t/g, '<tab>')
@@ -2377,7 +2377,7 @@ exports = module.exports = Doc;
  * Initialize a new `Doc` reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @API public
  */
 
 function Doc(runner) {
@@ -2583,7 +2583,7 @@ var statsTemplate = '<ul id="mocha-stats">'
  * Initialize a new `HTML` reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @API public
  */
 
 function HTML(runner, root) {
@@ -2903,7 +2903,7 @@ function JSONCov(runner, output) {
  *
  * @param {Object} cov
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function map(cov) {
@@ -2942,7 +2942,7 @@ function map(cov) {
  * @param {String} filename name of the source file
  * @param {Object} data jscoverage coverage data
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function coverage(filename, data) {
@@ -2985,7 +2985,7 @@ function coverage(filename, data) {
  *
  * @param {Object} test
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function clean(test) {
@@ -3050,7 +3050,7 @@ function List(runner) {
  *
  * @param {Object} test
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function clean(test) {
@@ -3123,7 +3123,7 @@ function JSONReporter(runner) {
  *
  * @param {Object} test
  * @return {Object}
- * @api private
+ * @API private
  */
 
 function clean(test) {
@@ -3329,7 +3329,7 @@ exports = module.exports = Markdown;
  * Initialize a new `Markdown` reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @API public
  */
 
 function Markdown(runner) {
@@ -3529,7 +3529,7 @@ NyanCat.prototype.draw = function(){
  * Draw the "scoreboard" showing the number
  * of passes, failures and pending tests.
  *
- * @api private
+ * @API private
  */
 
 NyanCat.prototype.drawScoreboard = function(){
@@ -3667,7 +3667,7 @@ NyanCat.prototype.cursorDown = function(n) {
  * Generate rainbow colors.
  *
  * @return {Array}
- * @api private
+ * @API private
  */
 
 NyanCat.prototype.generateColors = function(){
@@ -3833,7 +3833,7 @@ exports = module.exports = Spec;
  * Initialize a new `Spec` test reporter.
  *
  * @param {Runner} runner
- * @api public
+ * @API public
  */
 
 function Spec(runner) {
@@ -3972,7 +3972,7 @@ function TAP(runner) {
  *
  * @param {Object} test
  * @return {String}
- * @api private
+ * @API private
  */
 
 function title(test) {
@@ -4173,7 +4173,7 @@ Runnable.prototype.constructor = Runnable;
  *
  * @param {Number|String} ms
  * @return {Runnable|Number} ms or self
- * @api private
+ * @API private
  */
 
 Runnable.prototype.timeout = function(ms){
@@ -4190,7 +4190,7 @@ Runnable.prototype.timeout = function(ms){
  *
  * @param {Number|String} ms
  * @return {Runnable|Number} ms or self
- * @api private
+ * @API private
  */
 
 Runnable.prototype.slow = function(ms){
@@ -4206,7 +4206,7 @@ Runnable.prototype.slow = function(ms){
  * concatenating the parent's full title.
  *
  * @return {String}
- * @api public
+ * @API public
  */
 
 Runnable.prototype.fullTitle = function(){
@@ -4216,7 +4216,7 @@ Runnable.prototype.fullTitle = function(){
 /**
  * Clear the timeout.
  *
- * @api private
+ * @API private
  */
 
 Runnable.prototype.clearTimeout = function(){
@@ -4259,7 +4259,7 @@ Runnable.prototype.resetTimeout = function(){
 /**
  * Whitelist these globals for this test run
  *
- * @api private
+ * @API private
  */
 Runnable.prototype.globals = function(arr){
   var self = this;
@@ -4433,7 +4433,7 @@ Runner.prototype.constructor = Runner;
  * @param {RegExp} re
  * @param {Boolean} invert
  * @return {Runner} for chaining
- * @api public
+ * @API public
  */
 
 Runner.prototype.grep = function(re, invert){
@@ -4450,7 +4450,7 @@ Runner.prototype.grep = function(re, invert){
  *
  * @param {Suite} suite
  * @return {Number}
- * @api public
+ * @API public
  */
 
 Runner.prototype.grepTotal = function(suite) {
@@ -4503,7 +4503,7 @@ Runner.prototype.globals = function(arr){
 /**
  * Check for global variable leaks.
  *
- * @api private
+ * @API private
  */
 
 Runner.prototype.checkGlobals = function(test){
@@ -4536,7 +4536,7 @@ Runner.prototype.checkGlobals = function(test){
  *
  * @param {Test} test
  * @param {Error} err
- * @api private
+ * @API private
  */
 
 Runner.prototype.fail = function(test, err){
@@ -4568,7 +4568,7 @@ Runner.prototype.fail = function(test, err){
  *
  * @param {Hook} hook
  * @param {Error} err
- * @api private
+ * @API private
  */
 
 Runner.prototype.failHook = function(hook, err){
@@ -4708,7 +4708,7 @@ Runner.prototype.parents = function(){
  * Run the current test and callback `fn(err)`.
  *
  * @param {Function} fn
- * @api private
+ * @API private
  */
 
 Runner.prototype.runTest = function(fn){
@@ -4826,7 +4826,7 @@ Runner.prototype.runTests = function(suite, fn){
  *
  * @param {Suite} suite
  * @param {Function} fn
- * @api private
+ * @API private
  */
 
 Runner.prototype.runSuite = function(suite, fn){
@@ -4879,7 +4879,7 @@ Runner.prototype.runSuite = function(suite, fn){
  * Handle uncaught exceptions.
  *
  * @param {Error} err
- * @api private
+ * @API private
  */
 
 Runner.prototype.uncaught = function(err){
@@ -4957,7 +4957,7 @@ Runner.prototype.abort = function(){
  * @param {Array} ok
  * @param {Array} globals
  * @return {Array}
- * @api private
+ * @API private
  */
 
 function filterLeaks(ok, globals) {
@@ -4989,7 +4989,7 @@ function filterLeaks(ok, globals) {
  * Array of globals dependent on the environment.
  *
  * @return {Array}
- * @api private
+ * @API private
  */
 
  function extraGlobals() {
@@ -5040,7 +5040,7 @@ exports = module.exports = Suite;
  * @param {Suite} parent
  * @param {String} title
  * @return {Suite}
- * @api public
+ * @API public
  */
 
 exports.create = function(parent, title){
@@ -5058,7 +5058,7 @@ exports.create = function(parent, title){
  *
  * @param {String} title
  * @param {Context} ctx
- * @api private
+ * @API private
  */
 
 function Suite(title, ctx) {
@@ -5125,7 +5125,7 @@ Suite.prototype.timeout = function(ms){
  *
  * @param {Number|String} ms
  * @return {Suite|Number} for chaining
- * @api private
+ * @API private
  */
 
 Suite.prototype.slow = function(ms){
@@ -5156,7 +5156,7 @@ Suite.prototype.bail = function(bail){
  *
  * @param {Function} fn
  * @return {Suite} for chaining
- * @api private
+ * @API private
  */
 
 Suite.prototype.beforeAll = function(fn){
@@ -5254,7 +5254,7 @@ Suite.prototype.addSuite = function(suite){
  *
  * @param {Test} test
  * @return {Suite} for chaining
- * @api private
+ * @API private
  */
 
 Suite.prototype.addTest = function(test){
@@ -5303,7 +5303,7 @@ Suite.prototype.total = function(){
  *
  * @param {Function} fn
  * @return {Suite}
- * @api private
+ * @API private
  */
 
 Suite.prototype.eachTest = function(fn){
@@ -5394,7 +5394,7 @@ exports.escape = function(html){
  * @param {Array} array
  * @param {Function} fn
  * @param {Object} scope
- * @api private
+ * @API private
  */
 
 exports.forEach = function(arr, fn, scope){
@@ -5424,7 +5424,7 @@ exports.map = function(arr, fn, scope){
  * @parma {Array} arr
  * @param {Object} obj to find index of
  * @param {Number} start
- * @api private
+ * @API private
  */
 
 exports.indexOf = function(arr, obj, start){
@@ -5459,7 +5459,7 @@ exports.reduce = function(arr, fn, val){
  *
  * @param {Array} array
  * @param {Function} fn
- * @api private
+ * @API private
  */
 
 exports.filter = function(arr, fn){
@@ -5525,7 +5525,7 @@ function ignored(path){
  * Lookup files in the given `dir`.
  *
  * @return {Array}
- * @api private
+ * @API private
  */
 
 exports.files = function(dir, ret){
@@ -5550,7 +5550,7 @@ exports.files = function(dir, ret){
  *
  * @param {String} str
  * @return {String}
- * @api private
+ * @API private
  */
 
 exports.slug = function(str){
@@ -5597,7 +5597,7 @@ exports.escapeRegexp = function(str){
  *
  * @param {String} str
  * @return {String}
- * @api private
+ * @API private
  */
 
 exports.trim = function(str){
@@ -5628,7 +5628,7 @@ exports.parseQuery = function(qs){
  *
  * @param {String} js
  * @return {String}
- * @api private
+ * @API private
  */
 
 function highlight(js) {

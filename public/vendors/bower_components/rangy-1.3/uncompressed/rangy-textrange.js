@@ -485,7 +485,7 @@ rangy.createModule("TextRange", ["WrappedSelection"], function(api, module) {
     }
     
 /*
-    api.report = function() {
+    API.report = function() {
         console.log("Cached: " + cachedCount + ", uncached: " + uncachedCount);
     };
 */

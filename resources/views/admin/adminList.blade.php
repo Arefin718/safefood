@@ -25,7 +25,7 @@
                                         <th>Email</th>
                                         <th>Contact</th>
                                         <th>Join Date</th>
-                                        <th>Last Login</th>
+                                        <th>Last Activity</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -39,7 +39,7 @@
                                             <td class="txt-dark">{{$admin->contact_number}}</td>
 
                                             <td>{{$admin->created_at}}</td>
-                                            <td>{{$admin->last_login}}</td>
+                                            <td>{{$admin->description}}</td>
                                             <td><a href="#">Details</a></td>
                                         </tr>
 

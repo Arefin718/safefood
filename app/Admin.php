@@ -12,21 +12,21 @@ class Admin extends Model
 {
     public static function GetAllAdmins(){
         $admins=DB::Select("
-        SELECT
+       SELECT
     admins.*,
-    logins.created_at AS last_login
+    activities.*
 FROM
     admins
-LEFT JOIN logins ON logins.login_id = admins.id
+LEFT JOIN activities ON activities.admin_id = admins.admin_id
 WHERE
-    logins.created_at =(
+    activities.created_at =(
     SELECT
         MAX(created_at)
     FROM
-        logins
+        activities
     WHERE
-        login_id = admins.id
-) AND  admins.status NOT LIKE 0
+        admin_id = admins.admin_id
+) AND admins.status NOT LIKE 0
         
         ");
 

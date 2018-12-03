@@ -67,16 +67,11 @@
                     <div class="col-sm-12">
 
                                 <label for="p_type">Division</label>
-                                <select required name="division" id="division">
+                                <select required name="division_id" id="division">
 
-                                    <option value="barishal">Barishal</option>
-                                    <option value="Chittagong">Chittagong</option>
-                                    <option value="Dhaka" selected >Dhaka</option>
-                                    <option value="Khulna">Khulna</option>
-                                    <option value="Mymensingh">Mymensingh</option>
-                                    <option value="Rajshahi">Rajshahi</option>
-                                    <option value="Rangpur">Rangpur</option>
-                                    <option value="Sylhet">Sylhet</option>
+                                    @foreach($divisions as $division)
+                                        <option  value="{{$division->division_id}}">{{$division->title_english}}</option>
+                                        @endforeach
 
                                 </select>
                     </div>
@@ -84,10 +79,9 @@
                 <div class="row">
                     <div class="col-sm-12">
 
-                        <label for="city">District</label>
-                        <select   name="city" id="city">
-                            <option value=""></option>
-                            <option value="Dhaka">Dhaka</option>
+                        <label for="district">District</label>
+                        <select   name="district_id" id="district">
+
 
                         </select>
                     </div>
@@ -96,17 +90,8 @@
                     <div class="col-sm-12">
 
                         <label for="city">Thana/Upazila</label>
-                        <select   name="thana_upazila" id="thana_upazila">
-                            <option value=""></option>
-                            <option value="Uttara">Uttara</option>
-                            <option value="Badda">Badda</option>
-                            <option value="Banani">Banani</option>
-                            <option value="Motijheel">Motijheel</option>
-                            <option value="Gulshan">Gulshan</option>
-                            <option value="Dilkusha">Dilkusha</option>
-                            <option value="Paltan">Paltan</option>
-                            <option value="Fokirerpul">Fokirerpul</option>
-                            <option value="Bijoy Nagar">Bijoy Nagar</option>
+                        <select   name="upazila_id" id="thana_upazila">
+
 
                         </select>
                     </div>

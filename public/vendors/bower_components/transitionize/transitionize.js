@@ -23,7 +23,7 @@ module.exports = Transitionize;
  *
  * @param {Object} element
  * @param {Object} props
- * @api public
+ * @API public
  */
 
 function Transitionize(element, props) {
@@ -38,7 +38,7 @@ function Transitionize(element, props) {
  * Detect if Safari.
  *
  * @returns {Boolean}
- * @api private
+ * @API private
  */
 
 Transitionize.prototype.isSafari = function() {
@@ -49,7 +49,7 @@ Transitionize.prototype.isSafari = function() {
  * Loop though the object and push the keys and values in an array.
  * Apply the CSS3 transition to the element and prefix with -webkit- for Safari.
  *
- * @api private
+ * @API private
  */
 
 Transitionize.prototype.init = function() {

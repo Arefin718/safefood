@@ -34,6 +34,11 @@ Route::post('/category/edit/{id}','CategoryController@EditCategoryPost');
 
 Route::get('/addCompany','CompanyController@AddCompany')->name('admin.addCompany');
 Route::post('/addCompany','CompanyController@AddCompanyPost');
+Route::get('/districtlist','AreaController@GetDistrictList')->name('admin.districtList');
+Route::get('/thanaupazilalist','AreaController@GetThanaList')->name('admin.thanaList');
+
+
+
 Route::get('/companylist','CompanyController@CompanyList')->name('admin.companyList');
 Route::get('/companylist/closed','CompanyController@ClosedCompanyList')->name('admin.closedCompanyList');
 Route::post('/company/changestatus','CompanyController@CompanyStatusChange')->name('admin.companyStatus');
