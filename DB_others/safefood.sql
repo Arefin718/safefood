@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 01:50 PM
+-- Generation Time: Dec 10, 2018 at 06:44 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.1.20
 
@@ -335,7 +335,7 @@ CREATE TABLE `inspections` (
 --
 
 INSERT INTO `inspections` (`inspection_id`, `company_id`, `inspection_date`, `next_inspection`, `quality_category`, `inspected_by`, `inspected_by_designation`, `notes`, `is_verified`, `added_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(19, 'BFSA181203031217', '2018-11-13', '2019-02-13', 1, 'Salam', 'magistrate', 'best', 1, 1, NULL, '2018-12-03 11:22:34', '2018-12-03 11:22:34'),
+(19, 'BFSA181203031217', '2018-11-13', '2019-05-13', 1, 'Salam', 'magistrate', 'best', 1, 1, NULL, '2018-12-03 11:22:34', '2018-12-03 11:22:34'),
 (20, 'BFSA181203031217', '2018-12-03', '2019-03-03', 2, 'Hassan', 'magistrate', 'demotion', 1, 1, NULL, '2018-12-03 11:25:51', '2018-12-03 11:25:51');
 
 -- --------------------------------------------------------
@@ -1044,7 +1044,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `company_categories`

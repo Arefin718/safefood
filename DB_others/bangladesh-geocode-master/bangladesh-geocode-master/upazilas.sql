@@ -35,7 +35,7 @@ CREATE TABLE `upazilas` (
 -- Dumping data for table `upazilas`
 --
 
-INSERT INTO `upazilas` (`id`, `district_id`, `name`, `bn_name`) VALUES
+INSERT INTO `upazilas` (`upazila_id`, `district_id`, `title_english`, `title_bangla`) VALUES
 (1, 34, 'Amtali Upazila', 'আমতলী'),
 (2, 34, 'Bamna Upazila', 'বামনা'),
 (3, 34, 'Barguna Sadar Upazila', 'বরগুনা সদর'),

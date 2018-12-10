@@ -36,7 +36,7 @@
                                                 <td class="txt-dark">{{$inspection->inspection_date}}</td>
                                                 <td class="txt-dark">{{$inspection->next_inspection}}</td>
                                                 <td class="txt-dark">{{$inspection->company_id}}</td>
-                                                <td class="txt-dark">{{$inspection->current_category}}</td>
+                                                <td class="txt-dark">{{$inspection->company_quality}}</td>
                                                 <td class="txt-dark">{{$inspection->inspected_by}}</td>
                                                 <td class="txt-dark">{{$inspection->inspected_by_designation}}</td>
                                                 <td class="txt-dark">{{$inspection->notes}}</td>

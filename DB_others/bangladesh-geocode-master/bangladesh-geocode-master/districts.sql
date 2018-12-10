@@ -36,7 +36,7 @@ CREATE TABLE `districts` (
 -- Dumping data for table `districts`
 --
 
-INSERT INTO `districts` (`district_id`, `division_id`, `name`, `bn_name`, `lat`, `lon`, `website`) VALUES
+INSERT INTO `districts` (`district_id`, `division_id`, `title_english`, `title_bangla`, `latitude`, `longitude`, `website`) VALUES
 (1, 3, 'Dhaka', 'ঢাকা', 23.7115253, 90.4111451, 'www.dhaka.gov.bd'),
 (2, 3, 'Faridpur', 'ফরিদপুর', 23.6070822, 89.8429406, 'www.faridpur.gov.bd'),
 (3, 3, 'Gazipur', 'গাজীপুর', 24.0022858, 90.4264283, 'www.gazipur.gov.bd'),

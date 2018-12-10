@@ -64,7 +64,7 @@ class InspectionController extends Controller
     }
 
     public function InspectionList(){
-$inspections=Inspections::all()->sortByDesc('id');
+$inspections=Inspections::InspectionList();
 return view('inspection.inspectionsList')->with('inspections',$inspections);
     }
 

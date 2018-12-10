@@ -10,21 +10,15 @@ class Inspections extends Model
     public static function InspectionsoftheMonth($current_date){
 $inspections=DB::select("
 SELECT
-id,
-    company_id,
-    inspected_by,
-    current_category,
-    MAX(inspection_date) as inspection_date,
-    next_inspection
+    inspections.*,
+    company_quality_types.title AS company_quality,
+    TIMESTAMPDIFF(MONTH,inspections.next_inspection, '$current_date') as difference
 FROM
     inspections
-    WHERE next_inspection LIKE '$current_date-%'
-GROUP BY
-id,
-    company_id,
-    next_inspection,
-    inspected_by,
-    current_category
+LEFT JOIN company_quality_types ON company_quality_types.company_quality_types_id = inspections.quality_category
+WHERE (
+    TIMESTAMPDIFF(MONTH,next_inspection, '$current_date') = 0)
+
 ");
 return $inspections;
     }
@@ -32,23 +26,17 @@ return $inspections;
     public static function InspectionExpired($current_date){
         $inspections=DB::select("
 SELECT
-id,
-    company_id,
-    inspected_by,
-    current_category,
-    MAX(inspection_date) as inspection_date,
-    next_inspection,
-    TIMESTAMPDIFF(MONTH,next_inspection, $current_date) as difference
+    inspections.*,
+    company_quality_types.title AS company_quality,
+    TIMESTAMPDIFF(MONTH,inspections.next_inspection, '$current_date') as difference
 FROM
     inspections
-    WHERE next_inspection >= $current_date &&
-    TIMESTAMPDIFF(MONTH,next_inspection, $current_date) >=1
-GROUP BY
-id,
-    company_id,
-    next_inspection,
-    inspected_by,
-    current_category
+LEFT JOIN company_quality_types ON company_quality_types.company_quality_types_id = inspections.quality_category
+WHERE (
+    TIMESTAMPDIFF(MONTH,next_inspection, '$current_date') >=1)
+ORDER BY
+    TIMESTAMPDIFF(MONTH,inspections.next_inspection, '$current_date')
+DESC
     
 ");
         return $inspections;
@@ -74,4 +62,21 @@ DESC
         return $inspections;
     }
 
+    public static function InspectionList(){
+        $inspections = DB::select("
+    
+        SELECT
+    inspections.*,
+    company_quality_types.title AS company_quality
+FROM
+    inspections
+LEFT JOIN company_quality_types ON company_quality_types.company_quality_types_id = inspections.quality_category
+ORDER BY
+    inspections.inspection_id
+DESC
+        
+        ");
+
+        return $inspections;
+    }
 }

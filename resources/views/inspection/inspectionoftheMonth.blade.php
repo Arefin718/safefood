@@ -32,11 +32,11 @@
                                             <tr>
                                                 <td class="txt-dark">{{$inspection->inspection_date}}</td>
                                                 <td class="txt-dark">{{$inspection->company_id}}</td>
-                                                <td class="txt-dark">{{$inspection->current_category}}</td>
+                                                <td class="txt-dark">{{$inspection->company_quality}}</td>
                                                 <td class="txt-dark">{{$inspection->inspected_by}}</td>
 
 
-                                                <td><a href="/company/details/{{$inspection->company_id}}" class="btn btn-danger a-btn-slide-text">
+                                                <td><a href="/company/details/{{$inspection->company_id}}" class="btn btn-primary a-btn-slide-text">
                                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                                         <span><strong>View Company</strong></span>
                                                     </a></td>
