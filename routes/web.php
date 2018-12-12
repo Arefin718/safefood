@@ -73,4 +73,7 @@ Route::post('/user/searchCompany','UserController@SearchCompanyPost');
 //Admin Group
 Route::group(['middleware' => 'AdminLoginCheck'], function (){
 
+
 });
+
+
